@@ -28,6 +28,20 @@
         font-size: 50px;
     }
 
+    .signup-window {
+        height: fit-content;
+        max-height: 100vh;
+        width: 95vw;
+    }
+
+    #allergen-list {
+        z-index: 1000;
+        display: flex;
+        flex-direction: row;
+        padding-top: 1em;
+        
+    }
+
     .about-prysm {
         flex-direction: column;
         flex-wrap: wrap;
@@ -546,7 +560,7 @@ li.menu-item>a:hover {
     background-color: transparent;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.665);
-    margin: 1em 0 1em 0;
+    margin: 15em 0 1em 0;
     width: auto;
     height: 50px;
     border-radius: 0.5em;
@@ -562,9 +576,9 @@ li.menu-item>a:hover {
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.665);
     width: auto;
-    height: 50px;
+    height: 40px;
     border-radius: 0.5em;
-    font-size: 14px;
+    /* font-size: 14px; */
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
@@ -600,6 +614,11 @@ li.menu-item>a:hover {
 .signup-window-text {
     line-height: 2.5ex;
 }
+
+#allergen-list {
+    display: none;
+}
+
 
 #waitlist-add-btn {
     margin-bottom: 2em;
@@ -698,14 +717,6 @@ li.menu-item>a:hover {
     color: #fff;
     /* text-shadow: 1px 3px rgba(0, 0, 0, 0.7); */
 }
-
-/* .about-kay {
-    margin-right: 2em;
-}
-
-.about-logan {
-    margin-left: 2em;
-} */
 
 /* Footer */
 

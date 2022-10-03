@@ -87,13 +87,22 @@
 
             <h2 class="thankyou-text" id="thankyou-text">Thanks for signing up for early access to PRYSM. We'll let you
                 know more soon!</h2>
+            
+            
 
             <form name="allergen-form" action="#">
                 <label for="allergen" id="allergen">Allergen(s):</label><br>
-                <input type="text" id="allergen-input" name="allergen" required>
-                <button class="add-btn">Add</button>
+                <input type="text" id="allergen-input" name="allergen-input" >
+                <button id="add-btn" class="add-btn">Add</button>
+                <div id="allergen-list" class="allergen-list">
+                    <ol id="allergen-list-items"></ol>
+                </div>
                 <input type="submit" onclick="toggleThankYou()" id="begin-scan-btn" value="Begin scanning!"><br>
             </form>
+
+            
+
+
         </div>
 
 <!-- About Section -->
@@ -153,7 +162,8 @@
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
     crossorigin="anonymous"></script>
-
+<script src="./Scripts/index.js"></script>
+<script src="./Scripts/addAllergens.js" type="module"></script>
 </body>
 
 <!-- Footer -->
@@ -174,7 +184,7 @@
 
 <!-- Scripts -->
 
-<script src="./Scripts/index.js"></script>
+
 
 
 </html>
