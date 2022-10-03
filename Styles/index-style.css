@@ -556,8 +556,18 @@ li.menu-item>a:hover {
     cursor: pointer;
 }
 
+
 .add-btn {
-    
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.665);
+    width: auto;
+    height: 50px;
+    border-radius: 0.5em;
+    font-size: 14px;
+    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    text-align: center;
+    cursor: pointer;
 }
 
 #forgot-pw-btn {
