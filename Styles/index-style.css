@@ -542,7 +542,7 @@ li.menu-item>a:hover {
     cursor: pointer;
 }
 
-#waitlist-add-btn {
+#begin-scan-btn {
     background-color: transparent;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.665);
@@ -554,6 +554,10 @@ li.menu-item>a:hover {
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
+}
+
+.add-btn {
+    
 }
 
 #forgot-pw-btn {
