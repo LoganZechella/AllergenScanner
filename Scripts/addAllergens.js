@@ -25,18 +25,20 @@ function clearInput() {
 function createList() {
     if (allergenList.length === 0) {
         let li = document.createElement('li');
+        li.setAttribute('class', 'animate__bounceInDown');
         li.innerHTML = allergenList[0];
         allergenOl.appendChild(li);
     } else {
         let newestLi = allergenList[allergenList.length - 1];
         let li = document.createElement('li');
+        li.setAttribute('class', 'animate__bounceInDown');
         li.innerHTML = newestLi;
         allergenOl.appendChild(li);
     }
     listDiv.style.display = 'flex';
 }
 
-export function finalAllergenList() {
+function finalAllergenList() {
     return allergenList;
 }
 

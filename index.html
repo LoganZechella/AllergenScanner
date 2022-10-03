@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" defer></script>
     <!-- <script src="https://kit.fontawesome.com/ad8b2cf209.js" crossorigin="anonymous"></script> -->
@@ -94,10 +95,12 @@
                 <label for="allergen" id="allergen">Allergen(s):</label><br>
                 <input type="text" id="allergen-input" name="allergen-input" >
                 <button id="add-btn" class="add-btn">Add</button>
+
                 <div id="allergen-list" class="allergen-list">
-                    <ol id="allergen-list-items"></ol>
+                    <ol id="allergen-list-items" ></ol>
                 </div>
-                <input type="submit" onclick="toggleThankYou()" id="begin-scan-btn" value="Begin scanning!"><br>
+
+                <input type="submit" id="begin-scan-btn" value="Begin scanning!"><br>
             </form>
 
             
@@ -164,6 +167,7 @@
     crossorigin="anonymous"></script>
 <script src="./Scripts/index.js"></script>
 <script src="./Scripts/addAllergens.js" type="module"></script>
+<script src="./Scripts/apiFetch.js" type="module"></script>
 </body>
 
 <!-- Footer -->
