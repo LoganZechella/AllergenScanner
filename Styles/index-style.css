@@ -13,46 +13,62 @@
     .header-login {
         display: none;
     }
-    .header-logo, .header-h1 {
+
+    .header-logo,
+    .header-h1 {
         display: none;
     }
+
     .hero {
         padding: 0 1em 0 1em;
         width: 100vw;
     }
+
     .hero-h2 {
         font-size: 50px;
     }
+
     .about-prysm {
         flex-direction: column;
         flex-wrap: wrap;
         width: 100vw;
     }
+
     .why-prysm-text {
         font-size: 32px;
     }
-    .benefit1, .benefit2, .benefit3 {
+
+    .benefit1,
+    .benefit2,
+    .benefit3 {
         box-shadow: none;
         margin: 0 0.5em 0.5em 0.1em;
         font-size: 12px;
     }
-    .benefit1-text, .benefit2-text, .benefit3-text {
+
+    .benefit1-text,
+    .benefit2-text,
+    .benefit3-text {
         font-size: 12px;
     }
-    .founder-kay, .founder-logan {
+
+    .founder-kay,
+    .founder-logan {
         flex-wrap: wrap;
         justify-content: center;
         padding: 0 0.5em 0 0.5em;
     }
+
     .founders {
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
+
     .about-kay {
         padding: 0em 0.5em 0 0.5em;
     }
-    
+
     .about-logan {
         width: 100vw;
         padding: 0em 0.5em 0 0.5em;
@@ -63,18 +79,23 @@
     .dropdown-nav {
         display: none;
     }
+
     .about-kay {
         margin-right: 2em;
     }
+
     .about-logan {
         margin-left: 2em;
     }
-    .benefit1, .benefit2, .benefit3 {
+
+    .benefit1,
+    .benefit2,
+    .benefit3 {
         box-shadow: none;
         margin: 0 0.5em 0.5em 0.1em;
         font-size: 12px;
     }
-    
+
 }
 
 
@@ -92,16 +113,10 @@ body {
     /* background: #ffffff;
     background: -webkit-linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);;
     background: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */
-    background: rgb(30, 57, 98);
+    background: #123;
 }
 
-/* Background Animation - Based on code written by Alison Quaglia on CodePen */
-
-body,
-head {
-    font-size: 52px;
-    color: transparent;
-}
+/* Background Animation - Based on code written by Alison Quaglia on CodePen --> https://codepen.io/hylobates-lar/pen/bGEQXgm */
 
 head::before,
 head::after,
@@ -173,7 +188,8 @@ head::after {
 
 /* Rest of landing-header Items */
 
-.header-h1, .landing-login-button {
+.header-h1,
+.landing-login-button {
     color: #fff;
 }
 
@@ -214,7 +230,7 @@ head::after {
     transform: scale(1.1, 1.1);
 }
 
-/* Dropdown Menu */ 
+/* Dropdown Menu */
 
 .dropdown-nav .menu-container {
     position: relative;
@@ -419,7 +435,6 @@ li.menu-item>a:hover {
     text-align: center;
     /* text-shadow: 2px 2px rgba(0, 0, 0); */
     font-size: 50px;
-    margin-bottom: 0;
 }
 
 .hero-p {
@@ -462,7 +477,8 @@ li.menu-item>a:hover {
 
 /* Login and Signup Windows */
 
-.login-window, .signup-window {
+.login-window,
+.signup-window {
     display: none;
     position: fixed;
     flex-direction: column;
@@ -491,7 +507,8 @@ li.menu-item>a:hover {
     cursor: pointer;
 }
 
-.close-glyph, #close-btn {
+.close-glyph,
+#close-btn {
     display: block;
     align-self: flex-end;
     /* margin-right: 0.3em; */
@@ -500,11 +517,14 @@ li.menu-item>a:hover {
     border: none;
 }
 
-#username, #email {
+#username,
+#email {
     margin-bottom: 0.5em;
 }
 
-#username, #password, #email {
+#username,
+#password,
+#email {
     font-size: 28px;
 }
 
@@ -550,7 +570,9 @@ li.menu-item>a:hover {
     cursor: pointer;
 }
 
-#submit-btn:hover, #forgot-pw-btn:hover, #waitlist-add-btn:hover {
+#submit-btn:hover,
+#forgot-pw-btn:hover,
+#waitlist-add-btn:hover {
     text-decoration: underline;
     transform: scale(1.1, 1.1);
     transition: 0.2s ease-in-out;
@@ -558,7 +580,7 @@ li.menu-item>a:hover {
 
 .signup-window {
     padding: 0 1em 0 1em;
-    
+
 }
 
 .signup-window-text {
@@ -600,7 +622,9 @@ li.menu-item>a:hover {
     text-shadow: 2px 2px #000;
 }
 
-.benefit1, .benefit2, .benefit3 {
+.benefit1,
+.benefit2,
+.benefit3 {
     background: rgba(0, 0, 0, 0.2);
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.223);
     backdrop-filter: blur(10px);
@@ -646,12 +670,14 @@ li.menu-item>a:hover {
     margin-bottom: 2em;
 }
 
-.kay-photo, .logan-photo {
+.kay-photo,
+.logan-photo {
     transform: scale(0.5, 0.5);
     border-radius: 3em;
 }
 
-.about-kay, .about-logan {
+.about-kay,
+.about-logan {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -732,8 +758,13 @@ li.menu-item>a:hover {
 /* Keyframes */
 
 @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes move {
