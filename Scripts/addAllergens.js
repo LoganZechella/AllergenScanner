@@ -6,7 +6,7 @@ let allergenOl = document.getElementById('allergen-list-items');
 const listDiv = document.getElementById('allergen-list');
 let allergenList = [];
 const beginScanBtn = document.getElementById('begin-scan-btn');
-const addAllergenWindow = document.getElementById('signup-window');
+const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
 
 function getText() {
@@ -58,7 +58,27 @@ addBtn.addEventListener('click', function() {
     }
 });
 
+function beginScan() {
+    // Scanner Init
+    var resultContainer = document.getElementById('barcode-reader-results');
+    var lastResult, countResults = 0;
+
+    function onScanSuccess(decodedText, decodedResult) {
+        if (decodedText !== lastResult) {
+            ++countResults;
+            lastResult = decodedText;
+            // Handle on success condition with the decoded message.
+            console.log(`Scan result ${decodedText}`, decodedResult);
+        }
+    }
+
+    var html5QrcodeScanner = new Html5QrcodeScanner(
+        "barcode-reader", { fps: 10, qrbox: 250 });
+    html5QrcodeScanner.render(onScanSuccess);
+}
+
 beginScanBtn.addEventListener('click', function () {
+    beginScan();
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
 });
