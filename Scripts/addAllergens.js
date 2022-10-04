@@ -1,10 +1,13 @@
+
 // Variables
 let addBtn = document.getElementById('add-btn');
 let allergenInput = document.getElementById('allergen-input');
 let allergenOl = document.getElementById('allergen-list-items');
 const listDiv = document.getElementById('allergen-list');
 let allergenList = [];
-
+const beginScanBtn = document.getElementById('begin-scan-btn');
+const addAllergenWindow = document.getElementById('signup-window');
+const scannerDiv = document.getElementById('scanner-div');
 
 function getText() {
     if (allergenInput.value !== '') {
@@ -12,7 +15,7 @@ function getText() {
         console.log(allergenText);
         return allergenText; 
     } else {
-        alert('Please enter at least one allergen to start!');
+        allergenInput.style.animation = 'rubberBand 0.5s';
     }
     
 }
@@ -31,7 +34,6 @@ function createList() {
     } else {
         let newestLi = allergenList[allergenList.length - 1];
         let li = document.createElement('li');
-        li.setAttribute('class', 'animate__bounceInDown');
         li.innerHTML = newestLi;
         allergenOl.appendChild(li);
     }
@@ -45,8 +47,18 @@ function finalAllergenList() {
 
 addBtn.addEventListener('click', function() {
     let addedAllergen = getText();
-    allergenList.push(addedAllergen);
-    createList();
-    clearInput();
+    if (addedAllergen !== undefined) {
+        allergenList.push(addedAllergen);
+        createList();
+        clearInput();
+    } else {
+        addBtn.style.animation = 'shakeX 0.5s';
+        allergenInput.style.animation = 'rubberBand 0.5s';
+    }
 });
 
+beginScanBtn.addEventListener('click', function () {
+    addAllergenWindow.style.display = 'none';
+    scannerDiv.style.display = 'flex';
+    
+});

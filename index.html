@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" defer></script>
-    <!-- <script src="https://kit.fontawesome.com/ad8b2cf209.js" crossorigin="anonymous"></script> -->
+    
 </head>
 
 <!-- Body -->
@@ -55,7 +55,7 @@
         <div id="hero" class="hero">
             <h2 class="hero-h2">Peace of mind is just a few scans away...</h2>
             <p class="hero-p"><br/> Enter your food allergens, scan a barcode, and know if it's safe in seconds. Get started below!</p>
-            <button onclick="toggleSignupWindow()" type="button" id="start-btn" class="landing-button-signup">Begin</a>
+            <button onclick="toggleSignupWindow()" type="button" id="start-btn" class="landing-button-signup">Start now</a>
         </div>
 
 <!-- Login Window -->
@@ -93,19 +93,22 @@
 
             <form name="allergen-form" action="#">
                 <label for="allergen" id="allergen">Allergen(s):</label><br>
-                <input type="text" id="allergen-input" name="allergen-input" >
+                <input type="text" id="allergen-input" name="allergen-input">
                 <button id="add-btn" class="add-btn">Add</button>
 
                 <div id="allergen-list" class="allergen-list">
                     <ol id="allergen-list-items" ></ol>
                 </div>
 
-                <input type="submit" id="begin-scan-btn" value="Begin scanning!"><br>
+                <button id="begin-scan-btn" class="begin-scan-btn">Begin Scanning!</button>
             </form>
 
+        </div>
+
+<!-- Scanner Div -->
+
+        <div id="scanner-div" class="scanner-div">
             
-
-
         </div>
 
 <!-- About Section -->
@@ -167,7 +170,7 @@
     crossorigin="anonymous"></script>
 <script src="./Scripts/index.js"></script>
 <script src="./Scripts/addAllergens.js" type="module"></script>
-<script src="./Scripts/apiFetch.js" type="module"></script>
+<!-- <script src="./Scripts/apiFetch.js" type="module"></script> -->
 </body>
 
 <!-- Footer -->

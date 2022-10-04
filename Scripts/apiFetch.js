@@ -1,9 +1,16 @@
 import fetch from 'node-fetch';
 import { finalAllergenList } from './addAllergens';
+import Quagga from 'quagga';
+
+let addAllergenWindow = document.getElementById('signup-window');
+let scannerDiv = document.getElementById('scanner-div');
 
 // Allergen Variables
 let allergens = finalAllergenList();
-let algNum = allergens.length; 
+
+
+// Quagga Scanner
+
 
 
 // const alg1 = 'peanut';
