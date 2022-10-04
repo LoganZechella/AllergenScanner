@@ -22,7 +22,7 @@ function signupLink() {
 
 // Signup Pop-up
 function toggleSignupWindow() {
-    document.getElementById("signup-window").style.display = "flex";
+    document.getElementById("add-allergen-window").style.display = "flex";
     document.getElementById("hero").style.display = "none";
     document.getElementById("about-prysm").style.display = "none";
     document.getElementById("login-btn").style.display = "none";
@@ -33,14 +33,14 @@ function toggleSignupWindow() {
 
 // Add to Waitlist Button - Text Change
 function toggleThankYou() {
-    document.getElementById("signup-window-text").style.display = "none";
+    document.getElementById("add-allergen-window-text").style.display = "none";
     document.getElementById("thankyou-text").style.display = "block";
 };
 
 // Close button
 function closeLoginWindow() {
     document.getElementById("login-window").style.display = "none";
-    document.getElementById("signup-window").style.display = "none";
+    document.getElementById("add-allergen-window").style.display = "none";
     document.getElementById("hero").style.display = "flex";
     document.getElementById("about-prysm").style.display = "flex";
     document.getElementById("login-btn").style.display = "block";

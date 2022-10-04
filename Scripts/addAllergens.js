@@ -54,11 +54,11 @@ addBtn.addEventListener('click', function() {
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
         allergenInput.style.animation = 'rubberBand 0.5s';
+        
     }
 });
 
 beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
-    
 });
