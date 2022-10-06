@@ -57,6 +57,7 @@ addBtn.addEventListener('click', function() {
         allergenList.push(addedAllergen);
         createList();
         clearInput();
+        allergenInput.focus();
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
         allergenInput.style.animation = 'rubberBand 0.5s';   

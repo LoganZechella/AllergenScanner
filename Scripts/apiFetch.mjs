@@ -9,7 +9,23 @@ import fetch from 'node-fetch';
 // let allergens = finalAllergenList();
 
 
+function submitAllergens() {
+    const data = {
+        content: allergens
+    }
+}
 
+// Generic POST Fetch Request
+
+fetch(url, {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data),
+}).then(() => {
+    console.log('Success:', data);
+})
 
 
 const alg1 = 'peanut';
