@@ -58,13 +58,13 @@
             <h2 class="hero-h2">Peace of mind is just a few scans away...</h2>
             <p class="hero-p"><br /> Enter your food allergens, scan a barcode, and know if it's safe in seconds. Get
                 started below!</p>
-            <button onclick="toggleSignupWindow()" type="button" id="start-btn" class="start-btn">Start now</a>
+            <button type="button" id="start-btn" class="start-btn">Start now</a>
         </div>
 
         <!-- Login Window -->
 
         <div id="login-window" class="login-window">
-            <button onclick="closeLoginWindow()" type="button" id="close-btn" class="close-btn">
+            <button type="button" id="login-close-btn" class="login-close-btn">
                 <img class="close-glyph" id="close-glyph"
                     src="https://img.icons8.com/ios-glyphs/30/FFFFFF/delete-sign.png" />
             </button>
@@ -83,7 +83,7 @@
         <!-- Signup Window -->
 
         <div id="add-allergen-window" class="add-allergen-window">
-            <button onclick="closeLoginWindow()" type="button" id="close-btn" class="close-btn">
+            <button type="button" id="add-allergen-close-btn" class="add-allergen-close-btn">
                 <img class="close-glyph" id="close-glyph"
                     src="https://img.icons8.com/ios-glyphs/30/FFFFFF/delete-sign.png" />
             </button>
@@ -105,7 +105,7 @@
                     <ol id="allergen-list-items"></ol>
                 </div>
 
-                <button id="begin-scan-btn" class="begin-scan-btn">Begin Scanning!</button>
+                <button id="begin-scan-btn" class="begin-scan-btn" disabled >Begin Scanning!</button>
             </form>
 
         </div>

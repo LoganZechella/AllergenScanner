@@ -44,6 +44,12 @@ function finalAllergenList() {
     return allergenList;
 }
 
+function enableBeginScan() {
+    if (allergenList.length > 0 && beginScanBtn.disabled === true) {
+        beginScanBtn.style.cursor = 'pointer';
+        beginScanBtn.removeAttribute('disabled');
+    }
+};
 
 addBtn.addEventListener('click', function() {
     let addedAllergen = getText();
@@ -51,11 +57,12 @@ addBtn.addEventListener('click', function() {
         allergenList.push(addedAllergen);
         createList();
         clearInput();
+        
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
-        allergenInput.style.animation = 'rubberBand 0.5s';
-        
+        allergenInput.style.animation = 'rubberBand 0.5s';   
     }
+    enableBeginScan();
 });
 
 function beginScan() {

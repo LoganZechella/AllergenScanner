@@ -531,12 +531,14 @@ li.menu-item>a:hover {
     font-size: 40px;
 }
 
-#close-btn {
+#login-close-btn,
+#add-allergen-close-btn {
     cursor: pointer;
 }
 
 .close-glyph,
-#close-btn {
+#login-close-btn,
+#add-allergen-close-btn {
     display: block;
     align-self: flex-end;
     /* margin-right: 0.3em; */
@@ -581,7 +583,7 @@ li.menu-item>a:hover {
     font-size: 14px;
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 
