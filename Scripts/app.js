@@ -20,7 +20,7 @@ function signupLink() {
     toggleSignupWindow();
 };
 
-// Signup Pop-up
+// Open Add Allergen Window
 function startNow() {
     document.getElementById("add-allergen-window").style.display = "flex";
     document.getElementById("hero").style.display = "none";
@@ -84,4 +84,15 @@ startNowbtn.addEventListener('click', function () {
     }
 }());
 
+let menuStart = document.querySelector('.menu-start');
+let menuContainer = document.querySelector('.menu-container');
+
+menuStart.addEventListener('click', function () {
+    document.querySelector('.menu-container').classList.toggle('menu-opened');
+    if (!menuContainer.classList.contains('menu-opened')) {
+        startNow();
+    } else {
+        setTimeout(startNow, 800);
+    }
+});
 

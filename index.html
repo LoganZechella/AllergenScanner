@@ -34,11 +34,11 @@
                         <div class="bar btmBar"></div>
                     </div>
                 </div>
-                <ul class="menu">
+                <ul class="menu" id="menu">
                     <li class="menu-item"><a href="#">About</a></li>
-                    <li class="menu-item"><a href="#add-allergen-window" onclick="signupLink()">Waitlist</a></li>
-                    <li class="menu-item"><a href="#login-window" onclick="loginLink()">Login</a></li>
-                    <li class="menu-item"><a href="index.html">Home</a></li>
+                    <li class="menu-item"><a href="#">Documentation</a></li>
+                    <li class="menu-item"><a href="#">FAQs</a></li>
+                    <li class="menu-item menu-start"><a href="#">Scan</a></li>
                 </ul>
             </div>
         </div>
@@ -80,7 +80,7 @@
             </form>
         </div>
 
-        <!-- Signup Window -->
+        <!-- Add Allergen Window -->
 
         <div id="add-allergen-window" class="add-allergen-window">
             <button type="button" id="add-allergen-close-btn" class="add-allergen-close-btn">
@@ -115,6 +115,13 @@
         <div id="scanner-div" class="scanner-div">
             <div id="barcode-reader"></div>
             <div id="barcode-reader-results"></div>
+        </div>
+        
+        <div id="scanning-for-div">
+            <h3 id="scanning-for-txt" class="scanning-for-txt">Scanning for:<br /></h3>
+            <ol id="final-allergen-list" class="final-allergen-list">
+                
+            </ol>
         </div>
 
         <!-- About Section -->

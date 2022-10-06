@@ -57,7 +57,6 @@ addBtn.addEventListener('click', function() {
         allergenList.push(addedAllergen);
         createList();
         clearInput();
-        
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
         allergenInput.style.animation = 'rubberBand 0.5s';   
@@ -84,8 +83,19 @@ function beginScan() {
     html5QrcodeScanner.render(onScanSuccess);
 }
 
+function styleScanList() {
+    let scanningAllergenList = document.getElementById('final-allergen-list');
+    for (const allergen of allergenList) {
+        let li = document.createElement('li');
+        li.innerHTML = allergen;
+        scanningAllergenList.appendChild(li);
+    }
+    document.getElementById('scanning-for-div').style.display = 'flex';
+}
+
 beginScanBtn.addEventListener('click', function () {
     beginScan();
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
+    styleScanList();
 });
