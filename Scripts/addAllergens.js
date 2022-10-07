@@ -9,6 +9,8 @@ const beginScanBtn = document.getElementById('begin-scan-btn');
 const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
 
+let storage = window.sessionStorage;
+
 function getText() {
     if (allergenInput.value !== '') {
         let allergenText = allergenInput.value;
@@ -53,6 +55,11 @@ function enableBeginScan() {
 
 addBtn.addEventListener('click', function() {
     let addedAllergen = getText();
+    var keyPressed = event.keyCode || event.which;
+    if (keyPressed === 13) {
+        addBtn.preventDefault();
+        return false;
+    }
     if (addedAllergen !== undefined) {
         allergenList.push(addedAllergen);
         createList();
@@ -94,7 +101,16 @@ function styleScanList() {
     document.getElementById('scanning-for-div').style.display = 'flex';
 }
 
+function storageCounter() {
+    let counter = 0;
+    for (const allergen of allergenList) {
+        storage.setItem(counter, allergen);
+        counter++;
+    }
+}
+
 beginScanBtn.addEventListener('click', function () {
+    storageCounter();
     beginScan();
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
