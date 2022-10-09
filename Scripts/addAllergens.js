@@ -55,11 +55,6 @@ function enableBeginScan() {
 
 addBtn.addEventListener('click', function() {
     let addedAllergen = getText();
-    var keyPressed = event.keyCode || event.which;
-    if (keyPressed === 13) {
-        addBtn.preventDefault();
-        return false;
-    }
     if (addedAllergen !== undefined) {
         allergenList.push(addedAllergen);
         createList();
@@ -73,22 +68,22 @@ addBtn.addEventListener('click', function() {
 });
 
 function beginScan() {
-    // Scanner Init
-    var resultContainer = document.getElementById('barcode-reader-results');
-    var lastResult, countResults = 0;
-
     function onScanSuccess(decodedText, decodedResult) {
-        if (decodedText !== lastResult) {
-            ++countResults;
-            lastResult = decodedText;
-            // Handle on success condition with the decoded message.
-            console.log(`Scan result ${decodedText}`, decodedResult);
-        }
+        // handle the scanned code as you like, for example:
+        console.log(`Code matched = ${decodedText}`, decodedResult);
     }
 
-    var html5QrcodeScanner = new Html5QrcodeScanner(
-        "barcode-reader", { fps: 10, qrbox: 250 });
-    html5QrcodeScanner.render(onScanSuccess);
+    function onScanFailure(error) {
+        // handle scan failure, usually better to ignore and keep scanning.
+        // for example:
+        console.warn(`Code scan error = ${error}`);
+    }
+
+    let html5QrcodeScanner = new Html5QrcodeScanner(
+        "barcode-reader",
+        { fps: 3},
+  /* verbose= */ false);
+    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
 }
 
 function styleScanList() {

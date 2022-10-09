@@ -203,7 +203,7 @@ body {
     /* background: #ffffff;
     background: -webkit-linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);;
     background: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */
-    background: #123;
+    background: rgb(15, 19, 22);
 }
 
 /* Background Animation - Based on code written by Alison Quaglia on CodePen --> https://codepen.io/hylobates-lar/pen/bGEQXgm */
@@ -214,9 +214,10 @@ body::before,
 body::after {
     position: fixed;
     top: 50%;
-    left: 50%;
-    width: 3em;
-    height: 3em;
+    left: 30%;
+    bottom: 40%;
+    width: 5em;
+    height: 5em;
     content: ".";
     mix-blend-mode: screen;
     animation: 60s -27s move infinite ease-in-out alternate;
@@ -259,7 +260,7 @@ head::after {
     display: flex;
     flex-direction: column;
     text-align: center;
-    backdrop-filter: saturate(1.6);
+    backdrop-filter: saturate(1.5);
     overflow-y: scroll;
     overflow-x: hidden;
 }
