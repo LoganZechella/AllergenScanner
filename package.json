@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "animate.css": "^4.1.1",
+    "mongodb": "4.10",
     "node-fetch": "^3.2.10",
     "quagga": "^0.12.1"
   }
