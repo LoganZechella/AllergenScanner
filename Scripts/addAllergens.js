@@ -1,4 +1,5 @@
 
+
 // Variables
 let addBtn = document.getElementById('add-btn');
 let allergenInput = document.getElementById('allergen-input');
@@ -11,15 +12,17 @@ const scannerDiv = document.getElementById('scanner-div');
 
 let storage = window.sessionStorage;
 
+
+
 function getText() {
     if (allergenInput.value !== '') {
         let allergenText = allergenInput.value;
         console.log(allergenText);
-        return allergenText; 
+        return allergenText;
     } else {
         allergenInput.style.animation = 'rubberBand 0.5s';
     }
-    
+
 }
 
 function clearInput() {
@@ -53,7 +56,7 @@ function enableBeginScan() {
     }
 };
 
-addBtn.addEventListener('click', function() {
+addBtn.addEventListener('click', function () {
     let addedAllergen = getText();
     if (addedAllergen !== undefined) {
         allergenList.push(addedAllergen);
@@ -62,29 +65,17 @@ addBtn.addEventListener('click', function() {
         allergenInput.focus();
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
-        allergenInput.style.animation = 'rubberBand 0.5s';   
+        allergenInput.style.animation = 'rubberBand 0.5s';
     }
     enableBeginScan();
 });
 
-function beginScan() {
-    function onScanSuccess(decodedText, decodedResult) {
-        // handle the scanned code as you like, for example:
-        console.log(`Code matched = ${decodedText}`, decodedResult);
-    }
-
-    function onScanFailure(error) {
-        // handle scan failure, usually better to ignore and keep scanning.
-        // for example:
-        console.warn(`Code scan error = ${error}`);
-    }
-
-    let html5QrcodeScanner = new Html5QrcodeScanner(
-        "barcode-reader",
-        { fps: 3},
-  /* verbose= */ false);
-    html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-}
+// function beginScan() {
+//     styleScanList();
+//     storageCounter();
+//     addAllergenWindow.style.display = 'none';
+//     scannerDiv.style.display = 'flex';
+// }
 
 function styleScanList() {
     let scanningAllergenList = document.getElementById('final-allergen-list');
@@ -104,10 +95,33 @@ function storageCounter() {
     }
 }
 
+
+export let scannedText = '';
+
 beginScanBtn.addEventListener('click', function () {
-    storageCounter();
-    beginScan();
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
-    styleScanList();
+
+    let selectedDeviceId;
+    const codeReader = new ZXing.BrowserMultiFormatReader();
+    console.log('ZXing code reader initialized');
+
+    codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+        if (result) {
+            console.log(result);
+            scannedText = result.text;
+            console.log(scannedText);
+        }
+        if (err && !(err instanceof ZXing.NotFoundException)) {
+            console.error(err)
+            document.getElementById('barcode-reader-results').textContent = err
+        }
+    })
+        .catch((err) => {
+            console.error(err)
+        })
+    console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
 });
+
+
+

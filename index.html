@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous" ></script>
-    <script src="https://unpkg.com/html5-qrcode@2.2.1/html5-qrcode.min.js"></script>
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -105,7 +104,7 @@
                     <ol id="allergen-list-items"></ol>
                 </div>
 
-                <button id="begin-scan-btn" class="begin-scan-btn" disabled >Begin Scanning!</button>
+                <button id="begin-scan-btn" class="begin-scan-btn" disabled>Begin Scanning!</button>
             </form>
 
         </div>
@@ -113,14 +112,19 @@
         <!-- Scanner Div -->
 
         <div id="scanner-div" class="scanner-div">
-            <div id="barcode-reader"></div>
-            <div id="barcode-reader-results" willreadfrequently="true"></div>
+            <div id="barcode-reader">
+                <video id="video" width="300" height="200" style="border: 1px solid gray" autoplay="true" muted="true" playsinline="true"></video>
+            
+            </div>
+            <div id="barcode-reader-results" willreadfrequently="true">
+
+            </div>
         </div>
-        
+
         <div id="scanning-for-div">
             <h3 id="scanning-for-txt" class="scanning-for-txt">Scanning for:<br /></h3>
             <ol id="final-allergen-list" class="final-allergen-list">
-                
+
             </ol>
         </div>
 
@@ -187,9 +191,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
         crossorigin="anonymous"></script>
-    <script src="./Scripts/app.js"></script>
+    <script src="./Scripts/index.js"></script>
     <script src="./Scripts/addAllergens.js" type="module"></script>
-    <!-- <script src="./Scripts/apiFetch.js" type="module"></script> -->
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+
 </body>
 
 <!-- Footer -->

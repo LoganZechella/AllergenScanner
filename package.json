@@ -1,8 +1,20 @@
 {
+  "name": "allergen-scanner",
+  "version": "1.0.0",
+  "description": "A simple app to scan food products for allergens",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Logan Zechella",
   "dependencies": {
+    "@zxing/library": "^0.19.1",
     "animate.css": "^4.1.1",
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2",
     "mongodb": "4.10",
-    "node-fetch": "^3.2.10",
-    "quagga": "^0.12.1"
+    "mongoose": "^6.6.5",
+    "node-fetch": "^3.2.10"
   }
 }
