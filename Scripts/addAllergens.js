@@ -101,14 +101,36 @@ function storageCounter() {
     }
 }
 
+let matches = [];
+function checkIngredients() {
+    let ingList = apiOutput.ingredients.split('; ');
+    let lowerList = [];
+    
+    for (const ing of ingList) {
+        lowerList.push(ing.toLowerCase());
+    }
+    for (let i=0; i < lowerList.length; i++) {
+        for (const ing of lowerList) {
+            if (ing.includes(allergenList[i])) {
+                i++;
+                matches.push(ing);
+            } else {
+                console.log('no match');
+            }
+        }
+    }
+
+}
 
 export let scannedText = '';
 
 function finishScanning() {
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
+    checkIngredients();
     scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
     scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
+    scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
 }
 
 beginScanBtn.addEventListener('click', function () {
