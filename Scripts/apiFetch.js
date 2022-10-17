@@ -1,68 +1,58 @@
-import fetch from 'node-fetch';
-// import { finalAllergenList } from './addAllergens';
+
+import { scannedText } from './addAllergens.js';
 
 
-// let addAllergenWindow = document.getElementById('signup-window');
-// let scannerDiv = document.getElementById('scanner-div');
-
-// Allergen Variables
-// let allergens = finalAllergenList();
-
-
-function submitAllergens() {
-    const data = {
-        content: allergens
-    }
-}
+// function submitAllergens() {
+//     const data = {
+//         content: allergens
+//     }
+// }
 
 // Generic POST Fetch Request
 
-fetch(url, {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
-}).then(() => {
-    console.log('Success:', data);
-})
+// fetch(url, {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(data),
+// }).then(() => {
+//     console.log('Success:', data);
+// })
 
 
-const alg1 = 'peanut';
-const alg2 = 'tree nuts';
-const alg2a = 'almond';
-const alg2b = 'hazelnut';
-const alg2c = 'coconut';
-const alg2d = 'nuts';
-const alg2e = 'cashew';
-const alg3 = 'sesame';
-const alg4 = 'mustard';
-const alg5 = 'barley';
-const alg6 = 'rye';
+// const alg1 = 'peanut';
+// const alg2 = 'tree nuts';
+// const alg2a = 'almond';
+// const alg2b = 'hazelnut';
+// const alg2c = 'coconut';
+// const alg2d = 'nuts';
+// const alg2e = 'cashew';
+// const alg3 = 'sesame';
+// const alg4 = 'mustard';
+// const alg5 = 'barley';
+// const alg6 = 'rye';
 
 // API Data
 
-const scannedUPC = '014100085485';
-const urlPtOne = 'https://api.edamam.com/api/food-database/v2/parser?app_id=ca2296e3&app_key=a2e456b4aee5d50b688e3b76c657f79f&upc=';
-
-
-
-function makeURL(scannedUPC) {
-    return urlPtOne + scannedUPC;
-}
-
-var urlString = makeURL(scannedUPC);
-var urlWithUPC = new URL(urlString);
-
-
 export async function getAPI() {
     var apiOutput;
+    let scannedUPC = scannedText;
+    const urlPtOne = 'https://api.edamam.com/api/food-database/v2/parser?app_id=ca2296e3&app_key=a2e456b4aee5d50b688e3b76c657f79f&upc=';
+
+    function makeURL(scannedUPC) {
+        return urlPtOne + scannedUPC;
+    };
+
+    var urlString = makeURL(scannedUPC);
+    var urlWithUPC = new URL(urlString);
+    
     const res = await fetch(urlWithUPC).then(function (response) {
         // The API call was successful!
         return response.json();
     }).then(function (data) {
         // This is the JSON from our response
-        apiOutput = `Name: ${data.hints[0].food.label}: ${data.hints[0].food.foodContentsLabel}`;
+        apiOutput = `Ingredient List: ${data.hints[0].food.foodContentsLabel}`;
         console.log(apiOutput);
         return apiOutput;
     }).catch(function (err) {
@@ -73,8 +63,7 @@ export async function getAPI() {
 
 };
 
-let apiOutput = getAPI();
-console.log(apiOutput);
+
 
 // //Data Search
 
@@ -127,5 +116,5 @@ function checkAllergies(apiOutput) {
 //     console.log(text);
 };
 
-checkAllergies(apiOutput);
+
 

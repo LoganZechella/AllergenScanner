@@ -1,5 +1,4 @@
 
-
 // Login Link
 function loginLink() {
     toggleLogin();

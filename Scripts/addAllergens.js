@@ -1,4 +1,4 @@
-
+import { getAPI } from './apiFetch.js';
 
 // Variables
 let addBtn = document.getElementById('add-btn');
@@ -101,7 +101,7 @@ export let scannedText = '';
 beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
-
+    styleScanList();
     let selectedDeviceId;
     const codeReader = new ZXing.BrowserMultiFormatReader();
     console.log('ZXing code reader initialized');
@@ -111,6 +111,7 @@ beginScanBtn.addEventListener('click', function () {
             console.log(result);
             scannedText = result.text;
             console.log(scannedText);
+            getAPI();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err)
