@@ -107,11 +107,9 @@ export let scannedText = '';
 function finishScanning() {
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
-    scannedItemName.innerHTML = apiOutput.name;
-    scannedItemIngredients.innerHTML = apiOutput.ingredients;
+    scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
+    scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
 }
-
-
 
 beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
