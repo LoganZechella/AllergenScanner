@@ -34,9 +34,10 @@ import { scannedText } from './addAllergens.js';
 // const alg6 = 'rye';
 
 // API Data
-
+export var apiOutput;
+let outputName, outputIngredients;
 export async function getAPI() {
-    var apiOutput;
+
     let scannedUPC = scannedText;
     const urlPtOne = 'https://api.edamam.com/api/food-database/v2/parser?app_id=ca2296e3&app_key=a2e456b4aee5d50b688e3b76c657f79f&upc=';
 
@@ -52,10 +53,15 @@ export async function getAPI() {
         return response.json();
     }).then(function (data) {
         // This is the JSON from our response
-        apiOutput = `Ingredient List: ${data.hints[0].food.foodContentsLabel}`;
-        console.log(apiOutput);
+        outputName = data.hints[0].food.label;
+        outputIngredients = data.hints[0].food.foodContentsLabel;
+        apiOutput = {
+            name: outputName,
+            ingredients: outputIngredients
+        };
         return apiOutput;
-    }).catch(function (err) {
+    })
+    .catch(function (err) {
         // There was an error
         console.warn('Something went wrong.', err);
     });

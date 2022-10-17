@@ -1,4 +1,5 @@
 import { getAPI } from './apiFetch.js';
+import {apiOutput} from './apiFetch.js';
 
 // Variables
 let addBtn = document.getElementById('add-btn');
@@ -9,6 +10,11 @@ let allergenList = [];
 const beginScanBtn = document.getElementById('begin-scan-btn');
 const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
+const scannedResults = document.getElementById('barcode-reader-results');
+const barcodeReader = document.getElementById('barcode-reader');
+const scannedItemName = document.getElementById('scanned-item-name');
+const scannedItemAllergens = document.getElementById('scanned-item-allergens');
+const scannedItemIngredients = document.getElementById('scanned-item-ingredients');
 
 let storage = window.sessionStorage;
 
@@ -98,6 +104,15 @@ function storageCounter() {
 
 export let scannedText = '';
 
+function finishScanning() {
+    barcodeReader.style.display = 'none';
+    scannedResults.style.display = 'flex';
+    scannedItemName.innerHTML = apiOutput.name;
+    scannedItemIngredients.innerHTML = apiOutput.ingredients;
+}
+
+
+
 beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
@@ -108,21 +123,26 @@ beginScanBtn.addEventListener('click', function () {
 
     codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
-            console.log(result);
+            // console.log(result);
             scannedText = result.text;
-            console.log(scannedText);
             getAPI();
         }
+        if (apiOutput) {
+            finishScanning();
+        } 
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err)
             document.getElementById('barcode-reader-results').textContent = err
         }
+        
     })
         .catch((err) => {
             console.error(err)
         })
     console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-});
+})
+
+
 
 
 

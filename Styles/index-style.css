@@ -83,10 +83,6 @@
         margin: 0 auto;
     }
 
-    /* #barcode-reader__scan_region>img, #barcode-reader>div>img {
-        background-color: #fff;
-    } */
-
     #barcode-reader {
         width: 100%;
         height: 100%;
@@ -107,7 +103,7 @@
         text-align: center;
         color: #fff;
     }
-        
+
     #final-allergen-list>li {
         float: left;
         margin: 10px;
@@ -116,6 +112,13 @@
         padding: 5px;
         width: auto;
         display: inline;
+    }
+
+    #barcode-reader-results {
+        display: none;
+        height: fit-content;
+        max-height: 90vh;
+        width: 95vw;
     }
 
     .about-prysm {
