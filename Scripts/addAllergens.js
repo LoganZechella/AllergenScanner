@@ -15,10 +15,19 @@ const barcodeReader = document.getElementById('barcode-reader');
 const scannedItemName = document.getElementById('scanned-item-name');
 const scannedItemAllergens = document.getElementById('scanned-item-allergens');
 const scannedItemIngredients = document.getElementById('scanned-item-ingredients');
+const loginBtn = document.getElementById('login-btn');
+const loginWindow = document.getElementById('login-window');
+const hero = document.getElementById('hero');
 
 let storage = window.sessionStorage;
 
+function toggleLogin() {
+    hero.style.display = 'none';
+    loginBtn.style.display = 'none';
+    loginWindow.style.display = 'flex';
+}
 
+loginBtn.addEventListener('click', toggleLogin);
 
 function getText() {
     if (allergenInput.value !== '') {
@@ -51,9 +60,6 @@ function createList() {
     listDiv.style.display = 'flex';
 }
 
-function finalAllergenList() {
-    return allergenList;
-}
 
 function enableBeginScan() {
     if (allergenList.length > 0 && beginScanBtn.disabled === true) {
@@ -76,12 +82,6 @@ addBtn.addEventListener('click', function () {
     enableBeginScan();
 });
 
-// function beginScan() {
-//     styleScanList();
-//     storageCounter();
-//     addAllergenWindow.style.display = 'none';
-//     scannerDiv.style.display = 'flex';
-// }
 
 function styleScanList() {
     let scanningAllergenList = document.getElementById('final-allergen-list');
@@ -93,33 +93,11 @@ function styleScanList() {
     document.getElementById('scanning-for-div').style.display = 'flex';
 }
 
-function storageCounter() {
-    let counter = 0;
-    for (const allergen of allergenList) {
-        storage.setItem(counter, allergen);
-        counter++;
-    }
-}
 
 let matches = [];
 function checkIngredients() {
     let ingList = apiOutput.ingredients.split('; ');
     let lowerList = [];
-    
-    for (const ing of ingList) {
-        lowerList.push(ing.toLowerCase());
-    }
-    for (let i=0; i < lowerList.length; i++) {
-        for (const ing of lowerList) {
-            if (ing.includes(allergenList[i])) {
-                i++;
-                matches.push(ing);
-            } else {
-                console.log('no match');
-            }
-        }
-    }
-
 }
 
 export let scannedText = '';
@@ -127,7 +105,7 @@ export let scannedText = '';
 function finishScanning() {
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
-    checkIngredients();
+    // checkIngredients();
     scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
     scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
     scannedItemAllergens.innerHTML = `Allergens: ${matches}`;

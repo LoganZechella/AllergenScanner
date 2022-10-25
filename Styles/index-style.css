@@ -19,19 +19,22 @@
         display: none;
     }
 
+
     .hero {
         padding: 0 1em 0 1em;
         width: 100vw;
-    }
-
-    .hero-h2 {
-        font-size: 50px;
+        margin: 2em 0em 1em 0;
     }
 
     .add-allergen-window {
         height: fit-content;
         max-height: 90vh;
         width: 95vw;
+        margin: 0 0.75em 0 0.75em;
+    }
+
+    #add-allergen-window-text {
+        font-size: 24px;
     }
 
     #allergen-input {
@@ -58,6 +61,10 @@
 
     #begin-scan-btn:disabled {
         opacity: 0.4;
+    }
+
+    #begin-scan-btn {
+        margin-bottom: 1.5em;
     }
 
     .scanner-div {
@@ -116,80 +123,16 @@
 
     #barcode-reader-results {
         display: none;
-        height: fit-content;
-        max-height: 90vh;
-        width: 95vw;
     }
 
-    .about-prysm {
-        flex-direction: column;
-        flex-wrap: wrap;
-        width: 100vw;
-    }
-
-    .why-prysm-text {
-        font-size: 32px;
-    }
-
-    .benefit1,
-    .benefit2,
-    .benefit3 {
-        box-shadow: none;
-        margin: 0 0.5em 0.5em 0.1em;
-        font-size: 12px;
-    }
-
-    .benefit1-text,
-    .benefit2-text,
-    .benefit3-text {
-        font-size: 12px;
-    }
-
-    .founder-kay,
-    .founder-logan {
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 0.5em 0 0.5em;
-    }
-
-    .founders {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .about-kay {
-        padding: 0em 0.5em 0 0.5em;
-    }
-
-    .about-logan {
-        width: 100vw;
-        padding: 0em 0.5em 0 0.5em;
+    #scanned-item-name,
+    #scanned-item-allergens,
+    #scanned-item-ingredients {
+        font-size: 1em;
     }
 }
 
-@media screen and (min-width: 450px) {
-    .dropdown-nav {
-        display: none;
-    }
-
-    .about-kay {
-        margin-right: 2em;
-    }
-
-    .about-logan {
-        margin-left: 2em;
-    }
-
-    .benefit1,
-    .benefit2,
-    .benefit3 {
-        box-shadow: none;
-        margin: 0 0.5em 0.5em 0.1em;
-        font-size: 12px;
-    }
-
-}
+@media screen and (min-width: 450px) {}
 
 
 /* Whole Page */
@@ -203,10 +146,7 @@ body {
 }
 
 .landing-entire-body {
-    /* background: #ffffff;
-    background: -webkit-linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%);;
-    background: linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%); */
-    background: rgb(15, 19, 22);
+    background: rgb(9, 13, 30);
 }
 
 /* Background Animation - Based on code written by Alison Quaglia on CodePen --> https://codepen.io/hylobates-lar/pen/bGEQXgm */
@@ -277,7 +217,7 @@ head::after {
     width: 100vw;
     min-height: 75px;
     padding: 0 0 0 0;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0)
 }
 
 /* Rest of landing-header Items */
@@ -514,7 +454,7 @@ li.menu-item>a:hover {
 .hero {
     display: flex;
     flex-direction: column;
-    margin-top: 125px;
+    /* margin-top: 125px; */
     margin-bottom: 0em;
     transition: 0.5s ease-in;
     height: 80vh;
@@ -522,19 +462,17 @@ li.menu-item>a:hover {
 
 .hero-h2 {
     color: #fff;
-    /* text-shadow: rgba(0, 0, 0, .6); */
     font-weight: 800;
     font-size: 4em;
     letter-spacing: -2px;
     text-align: center;
-    /* text-shadow: 2px 2px rgba(0, 0, 0); */
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .hero-p {
     color: #fff;
     margin-bottom: 2em;
-    font-size: 24px;
+    font-size: 20px;
     /* text-shadow: 2px 2px rgba(0, 0, 0, 0.7); */
 }
 
@@ -545,11 +483,11 @@ li.menu-item>a:hover {
     border: 4px solid #fff;
     color: #fff;
     text-align: center;
-    font-size: 1.4em;
+    font-size: 1em;
     padding: 20px 40px;
     text-decoration: none;
     transition: all 0.5s ease;
-    margin: 0 auto;
+    margin: 1em auto;
     display: block;
     width: 1fr;
     background-color: rgba(89, 88, 88, 0.165);
@@ -572,7 +510,8 @@ li.menu-item>a:hover {
 /* Login and Signup Windows */
 
 .login-window,
-.add-allergen-window {
+.add-allergen-window,
+.results-window {
     display: none;
     /* position: fixed; */
     flex-direction: column;
@@ -612,18 +551,21 @@ li.menu-item>a:hover {
     border: none;
 }
 
-#username,
-#email {
+#login-email,
+#signup-email {
     margin-bottom: 0.5em;
 }
 
-#username,
-#password,
-#email {
+#login-email,
+#signup-email,
+#login-password,
+#signup-password,
+#login-email,
+#signup-email {
     font-size: 28px;
 }
 
-#submit-btn {
+#submit-btn, #submit-new-btn {
     background-color: transparent;
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.665);
@@ -659,7 +601,7 @@ li.menu-item>a:hover {
     width: auto;
     height: 40px;
     border-radius: 0.5em;
-    /* font-size: 14px; */
+    margin: 0.5em 0 0.5em 0;
     font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
@@ -703,6 +645,10 @@ li.menu-item>a:hover {
     margin: 1em 0 1em 0;
 }
 
+#allergen {
+    margin: 0 0 0.5em 0;
+}
+
 #allergen-list {
     display: none;
 }
@@ -729,94 +675,6 @@ li.menu-item>a:hover {
     display: none;
 }
 
-/* About PRYSM Section */
-
-.about-prysm {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-evenly;
-    padding: 1em 1em 1em 1em;
-    color: #fff;
-    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.7); */
-    margin-bottom: 5em;
-}
-
-.why-prysm {
-    display: flex;
-    color: #fff;
-    justify-content: center;
-    text-decoration: underline 5px;
-    margin-bottom: 2em;
-}
-
-.why-prysm-text {
-    font-size: 48px;
-    text-shadow: 2px 2px #000;
-}
-
-.benefit1,
-.benefit2,
-.benefit3 {
-    background: rgba(0, 0, 0, 0.2);
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.223);
-    backdrop-filter: blur(10px);
-    padding: 0.5em 0.5em 0 0.5em;
-    font-size: 24px;
-    border-radius: 1em;
-    width: 350px;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-}
-
-/* Founders Section */
-
-.founder-heading {
-    color: #fff;
-    font-display: flex;
-    /* text-shadow: 2px 2px rgba(0, 0, 0, 0.7); */
-    margin: 1em 0 0 0;
-    justify-content: center;
-
-}
-
-.founder-heading-text {
-    font-size: 60px;
-    text-decoration: 5px underline solid;
-    margin-bottom: 0.5em;
-}
-
-.founders {
-    display: flex;
-    flex-direction: column;
-}
-
-.founder-kay {
-    flex-direction: row;
-    display: flex;
-}
-
-.founder-logan {
-    display: flex;
-    flex-direction: row-reverse;
-    margin-bottom: 2em;
-}
-
-.kay-photo,
-.logan-photo {
-    transform: scale(0.5, 0.5);
-    border-radius: 3em;
-}
-
-.about-kay,
-.about-logan {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: #fff;
-    /* text-shadow: 1px 3px rgba(0, 0, 0, 0.7); */
-}
 
 /* Footer */
 
