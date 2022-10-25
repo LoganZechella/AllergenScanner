@@ -3,7 +3,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 
 // MongoDB Client
 
-const mongoclient = new MongoClient('mongodb+srv://jlz01:Df8mVm6FBJOGXqOv@allergenscanner.9wgxnhj.mongodb.net/?retryWrites=true&w=majority');
+const mongoclient = new MongoClient('mongodb+srv://jlz01:<password>@allergenscanner.9wgxnhj.mongodb.net/?retryWrites=true&w=majority');
 const db = mongoclient.db('allergenScanner');
 const collection = db.collection('users');
 
