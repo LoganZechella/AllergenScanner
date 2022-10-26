@@ -98,7 +98,7 @@
 
     .scanner-div {
         width: 80vw;
-        height: auto;
+        height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
