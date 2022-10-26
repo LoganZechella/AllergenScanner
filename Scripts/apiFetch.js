@@ -21,10 +21,10 @@ export async function getAPI() {
     var urlWithUPC = new URL(urlString);
     
     const res = await fetch(urlWithUPC).then(function (response) {
-        // The API call was successful!
+        // The API call was successful
         return response.json();
     }).then(function (data) {
-        // This is the JSON from our response
+        // This is the JSON from response
         outputName = data.hints[0].food.label;
         outputIngredients = data.hints[0].food.foodContentsLabel;
         apiOutput = {

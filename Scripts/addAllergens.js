@@ -95,9 +95,26 @@ function styleScanList() {
 
 
 let matches = [];
+
+
 function checkIngredients() {
-    let ingList = apiOutput.ingredients.split('; ');
-    let lowerList = [];
+    let rawIngredients = apiOutput.ingredients;
+    let eachIngredient = rawIngredients.split(';');
+    let lowercaseIngredients = [];
+    for (const ingredient of eachIngredient) {
+        lowercaseIngredients.push(ingredient.toLowerCase());
+    }
+
+    for (var i = 0; i < lowercaseIngredients.length; i++) {
+        for (var j = 0; j < allergenList.length; j++) {
+            var temp = allergenList[j].split(",");
+            if (lowercaseIngredients[i] == temp[0]) {
+                matches.push(allergenList[j]);
+                break;
+            }
+        }
+    }
+    console.log(matches);
 }
 
 export let scannedText = '';
@@ -105,10 +122,9 @@ export let scannedText = '';
 function finishScanning() {
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
-    // checkIngredients();
     scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
     scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
-    scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
+    // scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
 }
 
 beginScanBtn.addEventListener('click', function () {
