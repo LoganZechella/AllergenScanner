@@ -119,9 +119,9 @@
         margin: 0 auto;
     }
 
-    #barcode-reader {
-        width: 80vw;
-        height: 50vh;
+    #video, #barcode-reader {
+        width: 350px;
+        height: 400px;
     }
 
     #scanning-for-txt {
