@@ -1,5 +1,5 @@
 :root {
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     --palette-dark0: #001341;
     --palette-dark1: #00396c;
     --palette-dark2: #12629b;
@@ -206,22 +206,17 @@
         margin: 0 0 0 0;
         padding: 0 0 0 0;
     }
-
-
 }
-
 
 /* Whole Page */
 
 * {
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
 }
 
 body {
     margin: 0;
 }
-
-
 
 /* Content */
 
@@ -436,7 +431,7 @@ body {
     height: 35px;
     border-radius: 0.3em;
     font-size: 14px;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -451,7 +446,7 @@ body {
     height: 50px;
     border-radius: 0.3em;
     font-size: 22px;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -466,7 +461,7 @@ body {
     height: auto;
     border-radius: 0.5em;
     margin: 1em 0 1em 1em;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -476,10 +471,6 @@ body {
     transform: scale(1.1, 1.1);
     border: 2px solid rgba(23, 213, 1, 0.876);
 }
-
-
-
-
 
 #submit-btn:hover,
 #forgot-pw-btn:hover,
@@ -520,7 +511,7 @@ body {
     height: 50px;
     border-radius: 0.5em;
     font-size: 14px;
-    font-family: "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "SF Pro Rounded Semibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: not-allowed;
 }
