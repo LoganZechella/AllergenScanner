@@ -1,15 +1,28 @@
 const menuItemLoginBtn = document.getElementById("menu-login");
 var burger = document.querySelector('.burger-container');
 var header = document.querySelector('.menu-container');
+const menuContainer = document.querySelector('.menu-container');
+const addAllergenWindow = document.getElementById("add-allergen-window");
+const hero = document.getElementById("hero");
+const loginBtn = document.getElementById("login-btn");
+
+
+// Burger Toggle 
+function burgerToggle() {
+    addAllergenWindow.style.display = "flex";
+    hero.style.display = "none";
+    loginBtn.style.display = "none";
+}
+
 
 // Menu Login 
 burger.addEventListener('click', function () {
+    header.classList.toggle('menu-opened');
     hamburgerAnimate();
 });
 
 function menuLoginToggle() {
-    let menuContainer = document.querySelector('.menu-container');
-    document.querySelector('.menu-container').classList.toggle('menu-opened');
+    menuContainer.classList.toggle('menu-opened');
     if (!menuContainer.classList.contains('menu-opened')) {
 	    document.getElementById("login-window").style.display = "flex";
 	    document.getElementById("hero").style.display = "none";
@@ -55,21 +68,11 @@ startNowbtn.addEventListener('click', startNow);
 // Hamburger Animations
 
 function hamburgerAnimate() {
-    (function () {
-        var burger = document.querySelector('.burger-container'), header = document.querySelector('.menu-container');
-
-        burger.onclick = function () {
-            header.classList.toggle('menu-opened');
-        };
-    } ());
-
     let menuStart = document.querySelector('.menu-start');
-    let menuContainer = document.querySelector('.menu-container');
-
     menuStart.addEventListener('click', function () {
         document.querySelector('.menu-container').classList.toggle('menu-opened');
         if (!menuContainer.classList.contains('menu-opened')) {
-            startNow();
+            burgerToggle();
         } else {
             setTimeout(startNow, 800);
         }

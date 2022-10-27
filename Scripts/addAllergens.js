@@ -2,9 +2,9 @@ import { getAPI } from './apiFetch.js';
 import {apiOutput} from './apiFetch.js';
 
 // Variables
-let addBtn = document.getElementById('add-btn');
-let allergenInput = document.getElementById('allergen-input');
-let allergenOl = document.getElementById('allergen-list-items');
+const addBtn = document.getElementById('add-btn');
+const allergenInput = document.getElementById('allergen-input');
+const allergenOl = document.getElementById('allergen-list-items');
 const listDiv = document.getElementById('allergen-list');
 let allergenList = [];
 const beginScanBtn = document.getElementById('begin-scan-btn');
@@ -37,7 +37,6 @@ function getText() {
     } else {
         allergenInput.style.animation = 'rubberBand 0.5s';
     }
-
 }
 
 function clearInput() {
