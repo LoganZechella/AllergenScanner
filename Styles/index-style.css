@@ -20,10 +20,10 @@
 @media only screen and (max-width: 450px) {
 
     .landing-entire-body {
-        background: linear-gradient(200deg, #3E1732, #32217f, #182267, #338ec5);
+        background: linear-gradient(189deg, #6c20b7, #32217f, #3f51b5, #338ec5);
         background-size: 200% 200%;
-        backdrop-filter: blur(10px) brightness(1) saturate(1.5);
-        animation: bgAnimation 25s ease-in infinite;
+        backdrop-filter: blur(10px) brightness(1.2) saturate(1.5);
+        animation: bgAnimation 20s cubic-bezier(0.48, 1.05, 0.75, 0.46) alternate-reverse;
     }
 
     .header-login {
@@ -46,18 +46,25 @@
     }
 
     .hero-h2 {
-        font-size: 40px;
+        font-size: 48px;
+        text-shadow: 4px 3px 9px #000000ad;
     }
 
     .hero-p {
         font-size: 16px;
+        text-shadow: 1px 3px 10px black;
+    }
+
+    .close-glyph {
+        width: 25px;
+        height: auto;
     }
 
     .add-allergen-window {
         height: fit-content;
         max-height: 90vh;
         width: 95vw;
-        margin: 0 1em 0 1em;
+        margin: 0 1.7em 0 1.7em;
     }
 
     #add-allergen-window-text {
@@ -103,25 +110,29 @@
     }
 
     #login-window {
-        width: 95vw;
-        height: 90vh;
-        margin: 0 1em 0 1em;
+        margin: 2em 1.7em 0 1.7em;
+        padding: 0 0.5em 0 0.5em;
     }
 
-    #login-email,
-    #signup-email {
-        margin-bottom: 0.5em;
+    .login-window-text {
+        margin: 0.25em 0 0.8em 0;
     }
 
     #login-email-text {
-        margin: 0 0 0.5em 0;
+        margin: 0 0 0 0;
         min-width: 30vw;
     }
 
     #login-password-text {
-        margin: 0.5em 0 0 0;
+        margin: 0 0 0 0;
         min-width: 30vw;
     }
+
+    #signup-window {
+        margin: 2em 1.7em 0 1.7em;
+    }
+
+    
 
     .scanner-div {
         width: 80vw;
@@ -200,7 +211,6 @@
         animation: bgAnimation 15s ease-in-out infinite;
     }
 
-
     .hero-h2 {
         font-size: 55px;
     }
@@ -238,17 +248,14 @@ body {
 /* Content */
 
 .landing-main {
-    /* position: fixed; */
     width: 100vw;
     min-height: 100vh;
     height: auto;
     display: flex;
     flex-direction: column;
     text-align: center;
-    backdrop-filter: saturate(1.5);
     overflow-y: scroll;
     overflow-x: hidden;
-    /* margin-top: 2em; */
 }
 
 .landing-header {
@@ -258,9 +265,10 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    min-height: 75px;
+    min-height: 60px;
     padding: 0 0 0 0;
-    background-color: #1d1d1fc9;
+    background-color: rgba(29, 29, 30, 0.6);
+    backdrop-filter: blur(20px);
 }
 
 /* Rest of landing-header Items */
@@ -313,7 +321,6 @@ body {
 .hero {
     display: flex;
     flex-direction: column;
-    /* margin-top: 125px; */
     margin-bottom: 0em;
     transition: 0.5s ease-in;
     height: 80vh;
@@ -325,12 +332,6 @@ body {
     font-weight: 800;
     letter-spacing: -2px;
     text-align: center;
-    /* color: #7319fa;
-    background: -webkit-linear-gradient(-45deg, #7319fa, #fd44b9e5, #ff2929dd);
-    background-clip: text;
-    -webkit-background-clip: text;
-    fill: transparent;
-    -webkit-text-fill-color: transparent; */
 }
 
 .hero-p {
@@ -371,14 +372,13 @@ body {
 /* Login and Signup Windows */
 
 #login-window {
-    margin: 0 1em 0 1em;
+    padding: 0 0.5em 2em 0.5em;
 }
 
 .login-window,
 .add-allergen-window,
 .results-window {
     display: none;
-    /* position: fixed; */
     flex-direction: column;
     flex-wrap: nowrap;
     width: 50vw;
@@ -386,12 +386,14 @@ body {
     min-height: auto;
     align-self: center;
     z-index: 4;
-    border: 3px solid rgba(255, 255, 255, 0.705);
     border-radius: 1em;
-    padding-bottom: 3em;
+    padding-bottom: 2em;
     color: #fff;
-    text-shadow: 2px 2px #000;
-    background-color: #ffffff1d;
+    text-shadow: 4px 3px 5px #000000ad;
+    background: rgba(140, 140, 140, 0.20);
+    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     transition: 0.4s ease;
     animation: fadeIn 1s;
 }
@@ -406,24 +408,18 @@ body {
 #add-allergen-close-btn {
     display: block;
     align-self: flex-end;
-    /* margin-right: 0.3em; */
+    margin-right: -0.18em;
     margin-top: 0.3em;
     background-color: transparent;
     border: none;
 }
 
-#login-email,
-#signup-email {
-    margin-bottom: 0.5em;
-}
-
 #login-email-text {
-    margin: 0 0 0.5em 0;
     min-width: 30vw;
 }
 
 #login-password-text {
-    margin: 0.5em 0 0 0;
+    margin: 0 0 0 0;
     min-width: 30vw;
 }
 
@@ -494,7 +490,7 @@ body {
 
 .add-allergen-window {
     padding: 0 0.5em 0 0.5em;
-    margin: 2em 0.5em 0 0.5em;
+    margin: 2em 0.8em 0.5em 0.8em;
 }
 
 .add-allergen-window-text {
@@ -526,15 +522,6 @@ body {
     font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: not-allowed;
-}
-
-#waitlist-add-btn {
-    margin-bottom: 2em;
-}
-
-.thankyou-text {
-    display: none;
-    font-size: 28px;
 }
 
 #begin-scan-btn {
@@ -653,7 +640,7 @@ body {
 
 .dropdown-nav .menu-container .burger-container #burger .bar {
     width: 100%;
-    height: 1px;
+    height: 2px;
     display: block;
     position: relative;
     background: #FFF;
@@ -742,7 +729,7 @@ li.menu-item>a:hover {
     display: block;
     position: relative;
     color: #fff;
-    font-family: "Arial Rounded MT Bold", sans-serif;
+    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", sans-serif;
     font-weight: 100;
     text-decoration: none;
     font-size: 22px;
