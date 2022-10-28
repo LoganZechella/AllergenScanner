@@ -5,6 +5,7 @@ const menuContainer = document.querySelector('.menu-container');
 const addAllergenWindow = document.getElementById("add-allergen-window");
 const hero = document.getElementById("hero");
 const loginBtn = document.getElementById("login-btn");
+const stopScanBtn = document.getElementById("stop-scan-btn");
 
 
 // Burger Toggle 
@@ -50,6 +51,8 @@ function closeLoginWindow() {
     document.getElementById("login-btn").style.display = "block";
 };
 
+
+
 function closeAddAllergen() {
     document.getElementById("add-allergen-window").style.display = "none";
     document.getElementById("add-allergen-window").style.display = "none";
@@ -64,6 +67,7 @@ let addAllergenCloseBtn = document.getElementById('add-allergen-close-btn');
 loginCloseBtn.addEventListener('click', closeLoginWindow);
 addAllergenCloseBtn.addEventListener('click', closeAddAllergen);
 startNowbtn.addEventListener('click', startNow);
+
 
 // Hamburger Animations
 

@@ -1,5 +1,5 @@
 import { getAPI } from './apiFetch.js';
-import {apiOutput} from './apiFetch.js';
+import { apiOutput } from './apiFetch.js';
 
 // Variables
 const addBtn = document.getElementById('add-btn');
@@ -10,6 +10,7 @@ let allergenList = [];
 const beginScanBtn = document.getElementById('begin-scan-btn');
 const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
+const scanningForDiv = document.getElementById('scanning-for-div');
 const scannedResults = document.getElementById('barcode-reader-results');
 const barcodeReader = document.getElementById('barcode-reader');
 const scannedItemName = document.getElementById('scanned-item-name');
@@ -18,6 +19,7 @@ const scannedItemIngredients = document.getElementById('scanned-item-ingredients
 const loginBtn = document.getElementById('login-btn');
 const loginWindow = document.getElementById('login-window');
 const hero = document.getElementById('hero');
+const stopScanBtn = document.getElementById('stop-scan-btn');
 
 let storage = window.sessionStorage;
 
@@ -130,10 +132,14 @@ beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
     styleScanList();
+    scannerInit();
+    stopScanBtn.style.display = 'block';
+})
+
+function scannerInit() {
     let selectedDeviceId;
     const codeReader = new ZXing.BrowserMultiFormatReader();
     console.log('ZXing code reader initialized');
-
     codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
             // console.log(result);
@@ -142,20 +148,22 @@ beginScanBtn.addEventListener('click', function () {
         }
         if (apiOutput) {
             finishScanning();
-        } 
-        if (err && !(err instanceof ZXing.NotFoundException)) {
-            console.error(err)
-            document.getElementById('barcode-reader-results').textContent = err
         }
-        
+        if (err && !(err instanceof ZXing.NotFoundException)) {
+            console.error(err);
+            document.getElementById('barcode-reader-results').textContent = err;
+        }
+
     })
         .catch((err) => {
-            console.error(err)
-        })
-    console.log(`Started continous decode from camera with id ${selectedDeviceId}`)
-})
+            console.error(err);
+        });
+    console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
+}
 
-
-
-
-
+stopScanBtn.addEventListener('click', function () {
+    barcodeReader.disabled = true;
+    scannerDiv.style.display = 'none';
+    scanningForDiv.style.display = 'none'; addAllergenWindow.style.display = 'flex';
+    stopScanBtn.style.display = 'none';
+});
