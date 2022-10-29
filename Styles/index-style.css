@@ -68,7 +68,7 @@
         max-height: 90vh;
         width: 95vw;
         margin: 1em 1.7em 0 1.7em;
-        padding: 0 1em 1em 1em;
+        padding: 0.5em 1em 1em 1em;
         background: rgba(140, 140, 140, 0.20);
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
@@ -192,8 +192,8 @@
 
     #video,
     #barcode-reader {
-        width: 550px;
-        height: 300px;
+        width: 360px;
+        height: 550px;
     }
 
     #scanning-for-txt {
