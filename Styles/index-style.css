@@ -48,12 +48,12 @@
 
     .hero-h2 {
         font-size: 48px;
-        text-shadow: -3px 3px 9px #00000047;
+        text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     }
 
     .hero-p {
         font-size: 18px;
-        text-shadow: -3px 3px 9px #00000047;
+        text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     }
 
     .close-glyph {
