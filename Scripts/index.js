@@ -2,9 +2,11 @@ const menuItemLoginBtn = document.getElementById("menu-login");
 var burger = document.querySelector('.burger-container');
 var header = document.querySelector('.menu-container');
 const menuContainer = document.querySelector('.menu-container');
+const landingHeader = document.getElementById("landing-header");
 const addAllergenWindow = document.getElementById("add-allergen-window");
+const loginWindow = document.getElementById("login-window");
 const hero = document.getElementById("hero");
-const loginBtn = document.getElementById("login-btn");
+const loginBtn = document.getElementById("header-login-btn");
 const stopScanBtn = document.getElementById("stop-scan-btn");
 
 
@@ -12,7 +14,7 @@ const stopScanBtn = document.getElementById("stop-scan-btn");
 function burgerToggle() {
     addAllergenWindow.style.display = "flex";
     hero.style.display = "none";
-    loginBtn.style.display = "none";
+    !loginBtn.style.display;
 }
 
 
@@ -25,9 +27,9 @@ burger.addEventListener('click', function () {
 function menuLoginToggle() {
     menuContainer.classList.toggle('menu-opened');
     if (!menuContainer.classList.contains('menu-opened')) {
-	    document.getElementById("login-window").style.display = "flex";
-	    document.getElementById("hero").style.display = "none";
-	    document.getElementById("login-btn").style.display = "none";
+	    loginWindow.style.display = "flex";
+	    hero.style.display = "none";
+	    loginBtn.style.display = "none";
     } else {
         setTimeout(menuLoginToggle, 800);
     }
@@ -37,27 +39,39 @@ menuItemLoginBtn.addEventListener("click", menuLoginToggle);
 
 // Open Add Allergen Window
 function startNow() {
-    document.getElementById("add-allergen-window").style.display = "flex";
-    document.getElementById("hero").style.display = "none";
-    document.getElementById("login-btn").style.display = "none";
+    addAllergenWindow.style.display = "flex";
+    hero.style.display = "none";
+    loginBtn.style.display = "none";
+    landingHeader.style.padding = "1em 1em 1em 0";
 };
+
+// Open Login Window
+function openLogin() {
+    loginWindow.style.display = "flex";
+    hero.style.display = "none";
+    loginBtn.style.display = "none";
+    landingHeader.style.padding = "1em 1em 1em 0";
+}
+
+loginBtn.addEventListener("click", openLogin);
 
 // Close button
 function closeLoginWindow() {
-    document.getElementById("login-window").style.display = "none";
-    document.getElementById("add-allergen-window").style.display = "none";
-    document.getElementById("hero").style.display = "flex";
-    document.getElementById("landing-header").style.display = "flex";
-    document.getElementById("login-btn").style.display = "block";
+    loginWindow.style.display = "none";
+    addAllergenWindow.style.display = "none";
+    hero.style.display = "flex";
+    landingHeader.style.display = "flex";
+    landingHeader.style.padding = "0 0 0 0";
+    loginBtn.style.display = "block";
 };
 
-
-
+// Close Add Allergen Window
 function closeAddAllergen() {
-    document.getElementById("add-allergen-window").style.display = "none";
-    document.getElementById("add-allergen-window").style.display = "none";
-    document.getElementById("hero").style.display = "flex";
-    document.getElementById("login-btn").style.display = "block";
+    addAllergenWindow.style.display = "none";
+    hero.style.display = "flex";
+    loginBtn.style.display = "block";
+    landingHeader.style.display = "flex";
+    landingHeader.style.padding = "0 0 0 0";
 };
 
 let loginCloseBtn = document.getElementById('login-close-btn');
