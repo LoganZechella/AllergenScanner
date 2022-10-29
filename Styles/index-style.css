@@ -402,6 +402,7 @@ body {
     text-decoration: solid underline;
     border: 3px solid rgba(23, 213, 1, 0.876);
     border-radius: 19px;
+    animation: buttonFlip 0.5s 1;
 }
 
 
@@ -425,7 +426,7 @@ body {
     border-radius: 1em;
     padding-bottom: 2em;
     color: #fff;
-    text-shadow: 4px 3px 5px #000000ad;
+    text-shadow: -3px 3px 9px #00000047;
     background: rgba(255, 255, 255, 0.25);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
@@ -1013,5 +1014,21 @@ li.menu-item>a:hover {
 
     100% {
         background-position: 100% 100%;
+    }
+}
+
+@keyframes vanishOut {
+    0% {
+        opacity: 1;
+        transform-origin: 50% 50%;
+        transform: scale(1, 1);
+        filter: blur(0px);
+    }
+
+    100% {
+        opacity: 0;
+        transform-origin: 50% 50%;
+        transform: scale(2, 2);
+        filter: blur(20px);
     }
 }
