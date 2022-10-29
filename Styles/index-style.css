@@ -17,7 +17,7 @@
 
 /* Mobile/Tablet */
 
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 844px) {
 
     .landing-entire-body {
         background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
@@ -48,6 +48,7 @@
 
     .hero-h2 {
         font-size: 48px;
+        padding: 1em 0.1em 0 0.1em;
         text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
     }
 
@@ -59,6 +60,7 @@
     .close-glyph {
         width: 25px;
         height: auto;
+        margin-right: -0.2em;
     }
 
     .add-allergen-window {
@@ -66,7 +68,7 @@
         max-height: 90vh;
         width: 95vw;
         margin: 1em 1.7em 0 1.7em;
-        padding: 0 1em 2em 1em;
+        padding: 0 1em 1em 1em;
         background: rgba(140, 140, 140, 0.20);
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
@@ -116,7 +118,7 @@
 
     #login-window {
         margin: 2em 1.7em 0 1.7em;
-        padding: 0 0.5em 0 0.5em;
+        padding: 0 0.8em 1em 0.8em;
     }
 
     .login-window-text {
@@ -131,6 +133,21 @@
     #login-password-text {
         margin: 0 0 0 0;
         min-width: 30vw;
+    }
+
+    #login-btn,
+    #signup-new-btn {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.665);
+        margin: 1em 0 1em 0;
+        width: 150px;
+        height: 50px;
+        border-radius: 0.3em;
+        font-size: 22px;
+        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        text-align: center;
+        cursor: pointer;
     }
 
     #signup-window {
@@ -218,7 +235,7 @@
     }
 }
 
-@media screen and (min-width: 450px) {
+@media screen and (min-width: 844px) {
 
     .landing-entire-body {
         background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
@@ -226,6 +243,16 @@
         -webkit-backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
         backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
         animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
+    }
+
+    .header-logo,
+    .header-login {
+        display: none;
+    }
+
+    .burger-container,
+    .dropdown-nav {
+        display: flex;
     }
 
     .landing-header {
@@ -236,8 +263,8 @@
         justify-content: space-between;
         width: 100vw;
         min-height: auto;
-        padding: 0.5em 1em 0.5em 1em;
-        background-color: rgba(29, 29, 30, 0.6);
+        /* padding: 0.5em 1em 0.5em 1em; */
+        background-color: transparent;
         backdrop-filter: blur(20px);
     }
 
@@ -247,15 +274,13 @@
     }
 
     .hero-h2 {
-        font-size: 55px;
+        font-size: 45px;
+        margin: 1em 0 0 0;
+        padding: 0;
     }
 
     .hero-p {
         font-size: 20px;
-    }
-
-    .dropdown-nav {
-        display: none;
     }
 
     .add-allergen-window {
@@ -282,6 +307,109 @@
     }
 }
 
+@media screen and (min-width: 1024px) {
+
+    .landing-entire-body {
+        background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
+        background-size: 300% 300%;
+        -webkit-backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
+        backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
+        animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
+    }
+
+    .landing-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100vw;
+        min-height: auto;
+        padding: 1em 0.5em 1em 0.5em;
+        background-color: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(20px);
+    }
+
+    .burger-container,
+    .dropdown-nav {
+        display: none;
+    }
+
+    .header-logo,
+    .header-login {
+        display: flex;
+    }
+
+    .close-glyph {
+        width: 30px;
+        height: auto;
+    }
+
+    .hero-h2 {
+        font-size: 55px;
+        margin: 3em 0 0 0;
+        padding: 0;
+    }
+
+    .hero-p {
+        font-size: 24px;
+    }
+
+    .add-allergen-window {
+        height: fit-content;
+        max-height: 90vh;
+        width: 75vw;
+        padding: 0 1em 2em 1em;
+        margin: 20vh 1em 0.5em 1em;
+    }
+
+    #input-div {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+    #login-window {
+        margin: 2em auto 0 auto;
+        padding: 1em 1em 1em 1em;
+        height: fit-content;
+        width: 60vw;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #login-email,
+    #signup-email,
+    #login-password,
+    #signup-password {
+        font-size: 28px;
+    }
+
+    .login-window-text {
+        font-size: 40px;
+        padding: 0.5em 0.5em 0.5em 0.5em;
+    }
+
+    #login-btn,
+    #signup-new-btn {
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.665);
+        margin: 1em 0 1em 0;
+        width: 150px;
+        height: 50px;
+        border-radius: 0.3em;
+        font-size: 22px;
+        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
 /* Whole Page */
 
 * {
@@ -297,6 +425,7 @@ body {
 .landing-main {
     width: 100vw;
     min-height: 100vh;
+    padding-bottom: 3em;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -359,7 +488,7 @@ body {
     flex-direction: column;
     margin-bottom: 0em;
     transition: 0.5s ease-in;
-    height: 80vh;
+    height: fit-content;
     justify-content: center;
 }
 
@@ -407,9 +536,7 @@ body {
 
 /* Login and Signup Windows */
 
-#login-window {
-    padding: 0 0.5em 2em 0.5em;
-}
+
 
 .login-window,
 .add-allergen-window,
@@ -436,18 +563,13 @@ body {
 
 #login-close-btn,
 #add-allergen-close-btn {
-    cursor: pointer;
-}
-
-.close-glyph,
-#login-close-btn,
-#add-allergen-close-btn {
     display: block;
     align-self: flex-end;
-    margin-right: -0.18em;
-    margin-top: 0.3em;
+    margin-top: 0.4em;
+    margin-right: -0.4em;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 #login-email-text {
@@ -459,12 +581,7 @@ body {
     min-width: 30vw;
 }
 
-#login-email,
-#signup-email,
-#login-password,
-#signup-password {
-    font-size: 28px;
-}
+
 
 #forgot-pw-btn {
     background-color: transparent;
@@ -479,22 +596,6 @@ body {
     text-align: center;
     cursor: pointer;
 }
-
-#submit-btn,
-#submit-new-btn {
-    background-color: transparent;
-    color: #fff;
-    border: 1px solid rgba(255, 255, 255, 0.665);
-    margin: 1em 0 1em 0;
-    width: 150px;
-    height: 50px;
-    border-radius: 0.3em;
-    font-size: 22px;
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
-    text-align: center;
-    cursor: pointer;
-}
-
 
 
 .add-btn {
@@ -516,7 +617,7 @@ body {
     border: 2px solid rgba(23, 213, 1, 0.876);
 }
 
-#submit-btn:hover,
+#login-btn:hover,
 #forgot-pw-btn:hover,
 #waitlist-add-btn:hover {
     text-decoration: underline;
