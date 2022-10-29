@@ -23,6 +23,7 @@
         background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
         background-size: 300% 300%;
         backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
+        -webkit-backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
         animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
     }
 
@@ -51,7 +52,7 @@
     }
 
     .hero-p {
-        font-size: 16px;
+        font-size: 18px;
         text-shadow: -3px 3px 9px #00000047;
     }
 
@@ -92,7 +93,6 @@
     }
 
     #allergen-list {
-        /* z-index: 1000; */
         display: flex;
         max-height: 340px;
         overflow-y: scroll;
@@ -147,7 +147,6 @@
         align-self: center;
         margin-top: 2em;
         color: #000;
-        /* background: rgba(255, 255, 255, 0.2); */
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
     }
@@ -176,8 +175,8 @@
 
     #video,
     #barcode-reader {
-        width: 350px;
-        height: 200px;
+        width: 550px;
+        height: 300px;
     }
 
     #scanning-for-txt {
@@ -224,6 +223,7 @@
     .landing-entire-body {
         background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
         background-size: 300% 300%;
+        -webkit-backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
         backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
         animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
     }
