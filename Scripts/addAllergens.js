@@ -72,7 +72,7 @@ function enableBeginScan() {
 addBtn.addEventListener('click', function () {
     let addedAllergen = getText();
     if (addedAllergen !== undefined) {
-        allergenList.push(addedAllergen);
+        allergenList.push(addedAllergen.toLowerCase());
         createList();
         listDiv.style.display = 'flex';
         clearInput();
@@ -86,24 +86,28 @@ addBtn.addEventListener('click', function () {
 
 
 let matches = [];
-function checkIngredients() {
-    let rawIngredients = apiOutput.ingredients;
-    let eachIngredient = rawIngredients.split(';');
-    let lowercaseIngredients = [];
-    for (const ingredient of eachIngredient) {
-        lowercaseIngredients.push(ingredient.toLowerCase());
-    }
+var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
-    for (var i = 0; i < lowercaseIngredients.length; i++) {
-        for (var j = 0; j < allergenList.length; j++) {
-            var temp = allergenList[j].split(",");
-            if (lowercaseIngredients[i] == temp[0]) {
+function checkIngredients() {
+    let ingredientList = apiOutput.ingredients.toLowerCase().split(',');
+    let cleanedIngredients = ingredientList.map((string) => {
+        return string
+        .split('')
+        .filter(function(letter) {
+            return punctuation.indexOf(letter) === -1;
+        })
+        .join('');
+    });
+    let cleanedArray = cleanedIngredients.map((string) => {
+        return string.split(' ');
+    })
+    for (let i = 0; i < cleanedArray.length; i++) {
+        for (let j = 0; j < allergenList.length; j++) {
+            if (cleanedArray[i].includes(allergenList[j])) {
                 matches.push(allergenList[j]);
-                break;
             }
         }
     }
-    console.log(matches);
 }
 
 export let scannedText = '';
@@ -113,7 +117,9 @@ function finishScanning() {
     scannedResults.style.display = 'flex';
     scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
     scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
-    // scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
+    checkIngredients();
+    scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
+
 }
 
 beginScanBtn.addEventListener('click', function () {
@@ -135,24 +141,31 @@ function scannerInit() {
             getAPI();
         }
         if (apiOutput) {
+            codeReader.reset();
             finishScanning();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
             document.getElementById('barcode-reader-results').textContent = err;
         }
-
     })
         .catch((err) => {
             console.error(err);
         });
     console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
+    
 }
+
+
 
 stopScanBtn.addEventListener('click', function () {
     codeReader.reset();
     scannerDiv.style.display = 'none';
-    scanningForDiv.style.display = 'none'; 
+    scanningForDiv.style.display = 'none';
     addAllergenWindow.style.display = 'flex';
     stopScanBtn.style.display = 'none';
 });
+
+
+
+

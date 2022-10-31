@@ -193,7 +193,7 @@
     #video,
     #barcode-reader {
         width: 360px;
-        height: 550px;
+        /* height: 550px; */
     }
 
     #scanning-for-txt {
