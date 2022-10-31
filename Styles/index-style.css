@@ -27,6 +27,10 @@
         animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
     }
 
+    .landing-main {
+        justify-content: center;
+    }
+
     .header-login {
         display: none;
     }
@@ -234,77 +238,6 @@
         font-size: 1em;
     }
 }
-/* 
-@media screen and (min-width: 844px) {
-
-    .landing-entire-body {
-        background: radial-gradient(#6c20b7, #32217f, #3f51b5, #338ec5);
-        background-size: 300% 300%;
-        -webkit-backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
-        backdrop-filter: blur(20px) brightness(1.2) saturate(1.5);
-        animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
-    }
-
-    .header-logo,
-    .header-login {
-        display: none;
-    }
-
-    .burger-container,
-    .dropdown-nav {
-        display: flex;
-    }
-
-    .landing-header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: space-between;
-        width: 100vw;
-        min-height: auto;
-        background-color: transparent;
-        backdrop-filter: blur(20px);
-    }
-
-    .close-glyph {
-        width: 25px;
-        height: auto;
-    }
-
-    .hero-h2 {
-        font-size: 45px;
-        margin: 1em 0 0 0;
-        padding: 0;
-    }
-
-    .hero-p {
-        font-size: 20px;
-    }
-
-    .add-allergen-window {
-        height: fit-content;
-        max-height: 90vh;
-        width: 75vw;
-        padding: 0 1em 2em 1em;
-        margin: 20vh 1em 0.5em 1em;
-    }
-
-    #input-div {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        align-items: center;
-        justify-content: center;
-        margin: 0 0 0 0;
-        padding: 0 0 0 0;
-    }
-
-    .login-window-text {
-        font-size: 40px;
-        padding: 0.5em 0.5em 0.5em 0.5em;
-    }
-} */
 
 @media screen and (min-width: 844px) {
 
@@ -525,7 +458,7 @@ body {
 
 
 
-/* Rest of landing-header Items */
+/* Header */
 
 .header-h1,
 .landing-login-button {
@@ -623,9 +556,7 @@ body {
 }
 
 
-/* Login and Signup Windows */
-
-
+/* Login and Add Allergen Windows */
 
 .login-window,
 .add-allergen-window,
@@ -670,8 +601,6 @@ body {
     min-width: 30vw;
 }
 
-
-
 #forgot-pw-btn {
     background-color: transparent;
     color: #fff;
@@ -685,7 +614,6 @@ body {
     text-align: center;
     cursor: pointer;
 }
-
 
 .add-btn {
     background-color: transparent;
@@ -757,7 +685,6 @@ body {
     display: none;
 }
 
-
 /* Footer */
 
 .landing-footer {
@@ -819,9 +746,6 @@ body {
     color: #aaa;
     margin-bottom: 0;
 }
-
-
-
 
 /* Dropdown Menu */
 .dropdown-nav .menu-container {
@@ -1029,7 +953,6 @@ li.menu-item>a:hover {
         transform: rotate(360deg) scale(18) translateX(20px);
     }
 }
-
 
 @keyframes bounceInDown {
 
