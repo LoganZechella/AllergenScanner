@@ -28,6 +28,7 @@ function toggleLogin() {
     hero.style.display = 'none';
     loginBtn.style.display = 'none';
     loginWindow.style.display = 'flex';
+    addAllergenWindow.style.display = 'none';
 }
 
 loginBtn.addEventListener('click', toggleLogin);
@@ -60,8 +61,6 @@ function createList() {
         allergenOl.appendChild(li);
     }
 }
-
-
 
 function enableBeginScan() {
     if (allergenList.length > 0 && beginScanBtn.disabled === true) {

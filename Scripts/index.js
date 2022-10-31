@@ -8,6 +8,7 @@ const loginWindow = document.getElementById("login-window");
 const hero = document.getElementById("hero");
 const loginBtn = document.getElementById("header-login-btn");
 const stopScanBtn = document.getElementById("stop-scan-btn");
+const menuItemScanBtn = document.getElementById("menu-start");
 
 
 // Burger Toggle 
@@ -21,7 +22,6 @@ function burgerToggle() {
 // Menu Login 
 burger.addEventListener('click', function () {
     header.classList.toggle('menu-opened');
-    hamburgerAnimate();
 });
 
 function menuLoginToggle() {
@@ -30,12 +30,27 @@ function menuLoginToggle() {
 	    loginWindow.style.display = "flex";
 	    hero.style.display = "none";
 	    loginBtn.style.display = "none";
+        addAllergenWindow.style.display = "none";
     } else {
         setTimeout(menuLoginToggle, 800);
     }
 };
 
+function menuScanToggle() {
+    menuContainer.classList.toggle('menu-opened');
+    if (!menuContainer.classList.contains('menu-opened')) {
+        addAllergenWindow.style.display = "flex";
+        hero.style.display = "none";
+        loginBtn.style.display = "none";
+        loginWindow.style.display = "none";
+        hamburgerAnimate();
+    } else {
+        setTimeout(burgerToggle, 800);
+    }
+};
+
 menuItemLoginBtn.addEventListener("click", menuLoginToggle);
+menuItemScanBtn.addEventListener("click", menuScanToggle);
 
 // Open Add Allergen Window
 function startNow() {
@@ -90,9 +105,9 @@ function hamburgerAnimate() {
     menuStart.addEventListener('click', function () {
         document.querySelector('.menu-container').classList.toggle('menu-opened');
         if (!menuContainer.classList.contains('menu-opened')) {
-            burgerToggle();
+            hamburgerAnimate();
         } else {
-            setTimeout(startNow, 800);
+            setTimeout(burgerToggle, 800);
         }
     });
 }
