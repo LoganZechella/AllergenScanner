@@ -27,10 +27,6 @@
         animation: bgAnimation 30s cubic-bezier(0.79, 0.99, 0.38, -0.53) 1000ms infinite alternate;
     }
 
-    .landing-main {
-        justify-content: center;
-    }
-
     .header-login {
         display: none;
     }
