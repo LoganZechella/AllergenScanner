@@ -12,6 +12,7 @@ const beginScanBtn = document.getElementById('begin-scan-btn');
 const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
 const scanningForDiv = document.getElementById('scanning-for-div');
+const scanningForTxt = document.getElementById('scanning-for-txt');
 const scannedResults = document.getElementById('barcode-reader-results');
 const barcodeReader = document.getElementById('barcode-reader');
 const scannedItemName = document.getElementById('scanned-item-name');
@@ -21,6 +22,9 @@ const loginBtn = document.getElementById('header-login-btn');
 const loginWindow = document.getElementById('login-window');
 const hero = document.getElementById('hero');
 const stopScanBtn = document.getElementById('stop-scan-btn');
+const scannerIconsDiv = document.getElementById('scanner-icons');
+const successIcon = document.getElementById('scanner-success-icon');
+const failIcon = document.getElementById('scanner-fail-icon');
 
 
 
@@ -108,6 +112,9 @@ function checkIngredients() {
             }
         }
     }
+    if (matches.length === 0) {
+        matches.push('None');
+    }
 }
 
 export let scannedText = '';
@@ -115,20 +122,35 @@ export let scannedText = '';
 function finishScanning() {
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
+    scanningForTxt.style.display = 'none';
+    finalList.style.display = 'none';
     scannedItemName.innerHTML = `Product Name: ${apiOutput.name}`;
     scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
     checkIngredients();
     scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
-
 }
 
 beginScanBtn.addEventListener('click', function () {
+    if (codeReader) {
+        codeReader.reset();    
+    }
+    for (const li of allergenOl.children) {
+        let item = li.innerHTML;
+        finalList.innerHTML += `<li>${item}</li>`;
+    }
     scannerInit();
+    scannerIconsDiv.style.display = 'flex';
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
     scanningForDiv.style.display = 'flex';
     stopScanBtn.style.display = 'block';
 });
+
+function resetScanner() {
+    if (apiOutput) {
+        codeReader.reset();    
+    } 
+}
 
 const codeReader = new ZXing.BrowserMultiFormatReader();
 function scannerInit() {
@@ -141,7 +163,7 @@ function scannerInit() {
             getAPI();
         }
         if (apiOutput) {
-            codeReader.reset();
+            resetScanner();
             finishScanning();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
@@ -156,10 +178,8 @@ function scannerInit() {
     
 }
 
-
-
 stopScanBtn.addEventListener('click', function () {
-    codeReader.reset();
+    resetScanner();
     scannerDiv.style.display = 'none';
     scanningForDiv.style.display = 'none';
     addAllergenWindow.style.display = 'flex';

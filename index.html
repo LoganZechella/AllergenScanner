@@ -124,12 +124,14 @@
     <!-- Scanner Div -->
 
         <div id="scanner-div" class="scanner-div">
+            <div id="stop-scan" class="stop-scan">
+                <button id="stop-scan-btn" class="stop-scan-btn">Reset</button>
+            </div>
+
             <div id="barcode-reader">
                 <video id="video" autoplay="true" muted="true" playsinline="true"></video>
             </div>
-            <div id="stop-scan" class="stop-scan">
-                <button id="stop-scan-btn" class="stop-scan-btn">Stop Scanning</button>
-            </div>
+            
             <div id="barcode-reader-results" class="results-window">
                 <h3 id="scanned-item-name"></h3>
                 <h3 id="scanned-item-allergens"></h3>
@@ -138,6 +140,10 @@
         </div>
 
         <div id="scanning-for-div">
+            <div id="scanner-icons" class="scanner-icons">
+                <img id="success-icon" src="https://img.icons8.com/metro/208/1fb141/checked.png" alt="scan success indicator icon">
+                <img id="fail-icon" src="https://img.icons8.com/color/240/000000/cancel--v1.png" alt="scan fail indicator icon">
+            </div>
             <h3 id="scanning-for-txt" class="scanning-for-txt">Scanning for:<br /></h3>
             <ol id="final-allergen-list" class="final-allergen-list"></ol>
         </div>
@@ -158,6 +164,7 @@
     <script src="./Scripts/apiFetch.js" type="module"></script>
     <script src="./Scripts/addAllergens.js" type="module"></script>
     <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
+    
     
 </body>
 

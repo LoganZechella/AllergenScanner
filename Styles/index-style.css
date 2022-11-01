@@ -31,6 +31,10 @@
         display: none;
     }
 
+    .landing-header {
+        padding: 0;
+    }
+
     .header-logo,
     .header-h2 {
         display: none;
@@ -177,7 +181,7 @@
     }
 
     #stop-scan-btn {
-        margin: 1em 0 0 0;
+        margin: 0 0 1em 0;
         background-color: transparent;
         color: #fff;
         border: 2px solid rgba(255, 255, 255, 0.665);
@@ -188,17 +192,18 @@
         font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
+        margin: 0 0 1em 0;
     }
 
     #video,
     #barcode-reader {
-        width: 300px;
-        height: 400px;
+        width: 90vw;
+        object-fit: contain;
     }
 
     #scanning-for-txt {
         color: #fff;
-        margin: 5em 0 0.5em 0;
+        margin: 1em 0 0.5em 0;
         font-size: 20px;
     }
 
@@ -226,13 +231,31 @@
 
     #barcode-reader-results {
         display: none;
+        padding: 1em 1em 1em 1em;
     }
 
     #scanned-item-name,
     #scanned-item-allergens,
     #scanned-item-ingredients {
         font-size: 1em;
+        margin: 0.5em 0 0.5em 0;
     }
+
+    #scanner-icons {
+        display: none;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 5em 0 1em 0;
+    }
+
+    #success-icon, #fail-icon {
+        width:60px;
+        height: auto;
+        cursor: pointer;
+    }
+    
+
 }
 
 @media screen and (min-width: 844px) {

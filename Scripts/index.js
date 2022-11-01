@@ -57,7 +57,6 @@ function startNow() {
     addAllergenWindow.style.display = "flex";
     hero.style.display = "none";
     loginBtn.style.display = "none";
-    landingHeader.style.padding = "1em 1em 1em 0";
 };
 
 // Open Login Window
