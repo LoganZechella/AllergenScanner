@@ -186,7 +186,7 @@
         color: #fff;
         border: 2px solid rgba(255, 255, 255, 0.665);
         width: auto;
-        height: 40px;
+        height: auto;
         border-radius: 0.5em;
         font-size: 14px;
         font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
@@ -195,10 +195,9 @@
         margin: 0 0 1em 0;
     }
 
-    #video,
-    #barcode-reader {
-        width: 90vw;
-        object-fit: contain;
+    #video {
+        width: 80vw;
+        height: auto;
     }
 
     #scanning-for-txt {
@@ -249,12 +248,14 @@
         margin: 5em 0 1em 0;
     }
 
-    #success-icon, #fail-icon {
-        width:60px;
+    #success-icon,
+    #fail-icon {
+        display: none;
+        width: 60px;
         height: auto;
         cursor: pointer;
     }
-    
+
 
 }
 
@@ -1162,4 +1163,26 @@ li.menu-item>a:hover {
         transform: scale(2, 2);
         filter: blur(20px);
     }
+}
+
+@keyframes bounceOut {
+    20% {
+        transform: scale3d(0.9, 0.9, 0.9);
+    }
+
+    50%,
+    55% {
+        opacity: 1;
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+}
+
+.bounceOut {
+    animation-duration: calc(var(--animate-duration) * 0.75);
+    animation-name: bounceOut;
 }

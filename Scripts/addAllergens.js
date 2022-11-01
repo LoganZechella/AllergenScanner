@@ -120,6 +120,7 @@ function checkIngredients() {
 export let scannedText = '';
 
 function finishScanning() {
+    barcodeReader.style.animation = 'bounceOut 1s';
     barcodeReader.style.display = 'none';
     scannedResults.style.display = 'flex';
     scanningForTxt.style.display = 'none';
@@ -143,13 +144,12 @@ beginScanBtn.addEventListener('click', function () {
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
     scanningForDiv.style.display = 'flex';
-    stopScanBtn.style.display = 'block';
+    stopScanBtn.style.display = 'flex';
 });
 
+
 function resetScanner() {
-    if (apiOutput) {
-        codeReader.reset();    
-    } 
+    codeReader.reset();
 }
 
 const codeReader = new ZXing.BrowserMultiFormatReader();
