@@ -54,11 +54,17 @@
         font-size: 48px;
         padding: 1em 0.1em 0 0.1em;
         text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        animation: zoomInRight 1000ms 0ms backwards;
     }
 
     .hero-p {
-        font-size: 18px;
+        font-size: 20px;
         text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.2);
+        animation: zoomInLeft 1000ms 100ms ease-in backwards;
+    }
+
+    #start-btn {
+        animation: bounceIn 1000ms 1200ms backwards;
     }
 
     .close-glyph {
@@ -77,6 +83,7 @@
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
         border: 1px solid rgba(255, 255, 255, 0.25);
+        transition: fadeIn 1s;
     }
 
     #add-allergen-window-text {
@@ -193,7 +200,8 @@
         width: 20vw;
     }
 
-    #stop-scan-btn, #scan-again-btn {
+    #stop-scan-btn,
+    #scan-again-btn {
         margin: 0 0 1em 0;
         background-color: transparent;
         color: #fff;
@@ -266,9 +274,9 @@
     #scanned-item-name,
     #scanned-item-allergens {
         font-size: 1em;
-        margin: 0.5em 0 0.5em 0; 
+        margin: 0.5em 0 0.5em 0;
     }
-    
+
     #scanned-item-ingredients {
         font-size: 0.8em;
     }
@@ -288,7 +296,7 @@
         border-radius: 10px;
         padding: 0.2em 0 0.2em 0;
     }
-    
+
 }
 
 @media screen and (min-width: 844px) {
@@ -593,6 +601,7 @@ body {
     background-color: rgba(89, 88, 88, 0.165);
     border-radius: 19px;
     cursor: pointer;
+    animation: jackInTheBox 1000ms;
 }
 
 .start-btn:hover {
@@ -993,16 +1002,6 @@ li.menu-item>a:hover {
     }
 }
 
-@keyframes move {
-    from {
-        transform: rotate(0deg) scale(12) translateX(-20px);
-    }
-
-    to {
-        transform: rotate(360deg) scale(18) translateX(20px);
-    }
-}
-
 @keyframes bounceInDown {
 
     from,
@@ -1187,6 +1186,7 @@ li.menu-item>a:hover {
 }
 
 @keyframes bounceInRight {
+
     from,
     60%,
     75%,
@@ -1223,6 +1223,7 @@ li.menu-item>a:hover {
 }
 
 @keyframes bounceInLeft {
+
     from,
     60%,
     75%,
@@ -1256,4 +1257,90 @@ li.menu-item>a:hover {
 
 .bounceInLeft {
     animation-name: bounceInLeft;
+}
+
+@keyframes zoomOut {
+    from {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.zoomOut {
+    animation-name: zoomOut;
+}
+
+@keyframes zoomInDown {
+    from {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, -1000px, 0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(0.475, 0.475, 0.475) translate3d(0, 60px, 0);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
+}
+
+.zoomInDown {
+    animation-name: zoomInDown;
+}
+
+@keyframes zoomInUp {
+    from {
+        opacity: 0;
+        transform: scale3d(0.1, 0.1, 0.1) translate3d(0, 1000px, 0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+    }
+
+    60% {
+        opacity: 1;
+        transform: scale3d(0.475, 0.475, 0.475) translate3d(0, -60px, 0);
+        animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1);
+    }
+}
+
+.zoomInUp {
+    animation-name: zoomInUp;
+}
+
+@keyframes flipInX {
+    from {
+        transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+        animation-timing-function: ease-in;
+        opacity: 0;
+    }
+
+    40% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+        animation-timing-function: ease-in;
+    }
+
+    60% {
+        transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+        opacity: 1;
+    }
+
+    80% {
+        transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+    }
+
+    to {
+        transform: perspective(400px);
+    }
+}
+
+.flipInX {
+    backface-visibility: visible !important;
+    animation-name: flipInX;
 }

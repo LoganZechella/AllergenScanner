@@ -56,6 +56,7 @@ menuItemScanBtn.addEventListener("click", menuScanToggle);
 function startNow() {
     addAllergenWindow.style.display = "flex";
     hero.style.display = "none";
+    hero.style.animation = "none";
     loginBtn.style.display = "none";
 };
 

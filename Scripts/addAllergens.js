@@ -136,19 +136,8 @@ function finishScanning() {
 }
 
 beginScanBtn.addEventListener('click', function () {
-    if (finalList.children.length === 0) {
-        for (const li of allergenOl.children) {
-            let item = li.innerHTML;
-            finalList.innerHTML += `<li>${item}</li>`;
-        }
-    }
-    if (allergenOl.children.length > 1) {
-        for (const li of allergenOl.children) {
-            if (li === finalList.children) {
-                finalList.removeChild(li);
-                finalList.innerHTML += `<li>${li.innerHTML}</li>`;
-            }    
-        }
+    for (const li of allergenOl.children) {
+        finalList.innerHTML += `<li>${li.innerHTML}</li>`;
     }
     scannerInit();
     addAllergenWindow.style.display = 'none';
@@ -162,7 +151,6 @@ beginScanBtn.addEventListener('click', function () {
 // !!! NOT WORKING CURRENTLY - CANNOT CLEAR PREVIOUS SCAN RESULTS TO FETCH NEW API DATA FROM NEW SCAN !!!
 
 scanAgainBtn.addEventListener('click', function () {
-    scannedText = null;
     scannedResults.style.display = 'none';
     barcodeReader.style.display = 'flex';
     scanAgainBtn.style.display = 'none';
@@ -199,6 +187,7 @@ stopScanBtn.addEventListener('click', function () {
     codeReader.reset();
     scannerDiv.style.display = 'none';
     scanningForDiv.style.display = 'none';
+    finalList.innerHTML = '';
     addAllergenWindow.style.display = 'flex';
     stopScanBtn.style.display = 'none';
 });
