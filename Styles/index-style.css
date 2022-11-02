@@ -2,8 +2,7 @@
 
 @font-face {
     font-family: "SF Pro Rounded";
-    src: url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.eot");
-    src: url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.woff") format("woff"), url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.svg#SF Pro Rounded") format("svg");
+    src: url(https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.ttf) format("truetype");
 }
 
 :root {
