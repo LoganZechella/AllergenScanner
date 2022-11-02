@@ -127,12 +127,14 @@
         <!-- Scanner Div -->
 
         <div id="scanner-div" class="scanner-div">
-            <div id="stop-scan" class="stop-scan">
+            <div id="stop-scan" class="start-stop-scan">
                 <button id="stop-scan-btn" class="stop-scan-btn">Reset</button>
+                <div class="spacer"></div>
+                <button id="scan-again-btn">Scan Again</button>
             </div>
 
             <div id="barcode-reader">
-                <video id="video" autoplay="true" muted="true" playsinline="true"></video>
+                <video id="video" autoplay="true" muted="true" playsinline="false"></video>
             </div>
 
             <div id="barcode-reader-results" class="results-window">
@@ -143,17 +145,14 @@
         </div>
 
         <div id="scanning-for-div">
-            <div id="scanner-icons" class="scanner-icons">
+            <!-- <div id="scanner-icons" class="scanner-icons">
                 <script src="https://cdn.lordicon.com/qjzruarw.js"></script>
                 <lord-icon id="loading-icon" src="https://cdn.lordicon.com/hftgdgfo.json" trigger="loop" delay="1000"
                     style="width:50px;height:50px">
                 </lord-icon>
-
-
-
                 <img id="success-icon" src="https://img.icons8.com/metro/208/1fb141/checked.png" alt="scan success indicator icon">
                 <img id="fail-icon" src="https://img.icons8.com/color/240/000000/cancel--v1.png" alt="scan fail indicator icon">
-            </div>
+            </div> -->
             <h3 id="scanning-for-txt" class="scanning-for-txt">Scanning for:<br /></h3>
             <ol id="final-allergen-list" class="final-allergen-list"></ol>
         </div>

@@ -177,10 +177,23 @@
         height: 100%;
         flex-direction: column;
         align-items: center;
-        margin: -50px 0 0 0;
+        margin: 0.3em 0 0 0;
     }
 
-    #stop-scan-btn {
+    .start-stop-scan {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+    }
+
+    .spacer {
+        display: flex;
+        width: 20vw;
+    }
+
+    #stop-scan-btn, #scan-again-btn {
         margin: 0 0 1em 0;
         background-color: transparent;
         color: #fff;
@@ -192,12 +205,27 @@
         font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
-        margin: 0 0 1em 0;
+    }
+
+    #stop-scan-btn {
+        transition: bounceInRight 0.5s;
+        animation: bounceInRight 0.5s;
+    }
+
+    #scan-again-btn {
+        transition: bounceInLeft 0.5s;
+        animation: bounceInLeft 0.5s;
+    }
+
+    #barcode-reader {
+        transition: vanishOut 0.5s;
+        animation: vanishOut 0.5s;
     }
 
     #video {
         width: 80vw;
-        height: auto;
+        height: 30vh;
+        object-fit: cover;
     }
 
     #scanning-for-txt {
@@ -230,33 +258,37 @@
 
     #barcode-reader-results {
         display: none;
+        font-size: 24px;
         padding: 1em 1em 1em 1em;
+        transition: bounceInDown 1s;
     }
 
     #scanned-item-name,
-    #scanned-item-allergens,
-    #scanned-item-ingredients {
+    #scanned-item-allergens {
         font-size: 1em;
-        margin: 0.5em 0 0.5em 0;
+        margin: 0.5em 0 0.5em 0; 
+    }
+    
+    #scanned-item-ingredients {
+        font-size: 0.8em;
     }
 
-    #scanner-icons {
-        display: none;
-        flex-direction: row-reverse;
-        justify-content: center;
-        align-items: center;
-        margin: 5em 0 1em 0;
+    .scanned-item-allergens-unsafe {
+        color: rgb(255, 0, 0);
+        text-shadow: #000 0px 2px 10px;
+        border: red 2px solid;
+        border-radius: 10px;
+        padding: 0.2em 0 0.2em 0;
     }
 
-    #success-icon,
-    #fail-icon {
-        display: none;
-        width: 60px;
-        height: auto;
-        cursor: pointer;
+    .scanned-item-allergens-safe {
+        color: green;
+        text-shadow: #000 0px 2px 10px;
+        border: green 2px solid;
+        border-radius: 10px;
+        padding: 0.2em 0 0.2em 0;
     }
-
-
+    
 }
 
 @media screen and (min-width: 844px) {
@@ -691,9 +723,6 @@ body {
     font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: not-allowed;
-}
-
-#begin-scan-btn {
     z-index: 1001;
 }
 
@@ -1097,36 +1126,6 @@ li.menu-item>a:hover {
     animation-name: rubberBand;
 }
 
-@keyframes slideInRight {
-    from {
-        transform: translate3d(100%, 0, 0);
-        visibility: visible;
-    }
-
-    to {
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.slideInRight {
-    animation-name: slideInRight;
-}
-
-@keyframes slideInLeft {
-    from {
-        transform: translate3d(-100%, 0, 0);
-        visibility: visible;
-    }
-
-    to {
-        transform: translate3d(0, 0, 0);
-    }
-}
-
-.slideInLeft {
-    animation-name: slideInLeft;
-}
-
 @keyframes bgAnimation {
     0% {
         background-position: 0% 0%;
@@ -1185,4 +1184,76 @@ li.menu-item>a:hover {
 .bounceOut {
     animation-duration: calc(var(--animate-duration) * 0.75);
     animation-name: bounceOut;
+}
+
+@keyframes bounceInRight {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    from {
+        opacity: 0;
+        transform: translate3d(3000px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(-25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        transform: translate3d(10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        transform: translate3d(-5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.bounceInRight {
+    animation-name: bounceInRight;
+}
+
+@keyframes bounceInLeft {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+
+    0% {
+        opacity: 0;
+        transform: translate3d(-3000px, 0, 0) scaleX(3);
+    }
+
+    60% {
+        opacity: 1;
+        transform: translate3d(25px, 0, 0) scaleX(1);
+    }
+
+    75% {
+        transform: translate3d(-10px, 0, 0) scaleX(0.98);
+    }
+
+    90% {
+        transform: translate3d(5px, 0, 0) scaleX(0.995);
+    }
+
+    to {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.bounceInLeft {
+    animation-name: bounceInLeft;
 }
