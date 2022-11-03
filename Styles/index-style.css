@@ -126,6 +126,10 @@
         margin-bottom: 1.5em;
     }
 
+    #resume-scan-btn {
+        cursor: pointer;
+    }
+
     #login-window {
         margin: 2em 1.7em 0 1.7em;
         padding: 0 0.8em 1em 0.8em;
@@ -719,7 +723,8 @@ body {
     display: none;
 }
 
-#begin-scan-btn {
+.begin-scan-btn,
+.resume-scan-btn {
     background-color: transparent;
     color: #fff;
     border: 2px solid rgba(255, 255, 255, 0.665);
@@ -732,6 +737,10 @@ body {
     text-align: center;
     cursor: not-allowed;
     z-index: 1001;
+}
+
+#resume-scan-btn {
+    display: none;
 }
 
 #scanner-div {

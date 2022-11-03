@@ -9,6 +9,7 @@ const listDiv = document.getElementById('allergen-list');
 const finalList = document.getElementById('final-allergen-list')
 let allergenList = [];
 const beginScanBtn = document.getElementById('begin-scan-btn');
+const resumeScanBtn = document.getElementById('resume-scan-btn');
 const addAllergenWindow = document.getElementById('add-allergen-window');
 const scannerDiv = document.getElementById('scanner-div');
 const scanningForDiv = document.getElementById('scanning-for-div');
@@ -120,7 +121,6 @@ export let scannedText;
 
 async function finishScanning() {
     let apiResults = await getAPI();
-    console.log(apiResults);
     scannedResults.style.animation = 'bounceIn 1s';
     scannedResults.style.display = 'flex';
     barcodeReader.style.display = 'none';
@@ -139,10 +139,15 @@ async function finishScanning() {
     matches = [];
 }
 
-beginScanBtn.addEventListener('click', function () {
+function updateScanningFor() {
     for (const li of allergenOl.children) {
         finalList.innerHTML += `<li>${li.innerHTML}</li>`;
-    }
+    };
+}
+
+
+beginScanBtn.addEventListener('click', function () {
+    updateScanningFor();
     scannerInit();
     addAllergenWindow.style.display = 'none';
     scannerDiv.style.display = 'flex';
@@ -154,6 +159,7 @@ beginScanBtn.addEventListener('click', function () {
 
 scanAgainBtn.addEventListener('click', function () {
     scannedResults.style.display = 'none';
+    btnSpacer.style.display = 'none';
     barcodeReader.style.display = 'flex';
     scanAgainBtn.style.display = 'none';
     scannerInit();
@@ -191,6 +197,7 @@ function scannerReInit() {
             // console.log(result);
             scannedText = result.text;
             newCodeReader.stopAsyncDecode();
+            finishScanning();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
@@ -204,11 +211,28 @@ function scannerReInit() {
 
 }
 
+resumeScanBtn.addEventListener('click', function () {
+    updateScanningFor();
+    scannerReInit();
+    scannedResults.style.display = 'none';
+    addAllergenWindow.style.display = 'none';
+    btnSpacer.style.display = 'flex';
+    scannerDiv.style.display = 'flex';
+    barcodeReader.style.display = 'flex';
+    scanAgainBtn.style.display = 'flex';
+    stopScanBtn.style.display = 'flex';
+    scanningForDiv.style.display = 'flex';
+});
+
 stopScanBtn.addEventListener('click', function () {
+    codeReader.stopAsyncDecode();
     codeReader.reset();
     scannerDiv.style.display = 'none';
     scanningForDiv.style.display = 'none';
     finalList.innerHTML = '';
+    beginScanBtn.style.display = 'none';
+    resumeScanBtn.removeAttribute('disabled');
+    resumeScanBtn.style.display = 'inline-block';
     addAllergenWindow.style.display = 'flex';
     stopScanBtn.style.display = 'none';
 });
