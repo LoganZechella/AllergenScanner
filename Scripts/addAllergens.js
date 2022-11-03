@@ -88,6 +88,8 @@ addBtn.addEventListener('click', function () {
 });
 
 
+// Check for allergen matches in ingredients
+
 let matches = [];
 var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
@@ -104,19 +106,22 @@ function checkIngredients() {
     let cleanedArray = cleanedIngredients.map((string) => {
         return string.split(' ');
     })
+
     for (let i = 0; i < cleanedArray.length; i++) {
         for (let j = 0; j < allergenList.length; j++) {
             if (cleanedArray[i].includes(allergenList[j])) {
                 matches.push(allergenList[j].toUpperCase());
-            }
+            } 
         }
     }
     if (matches.length === 0) {
         matches.push('None');
-
+        console.log(matches);
     }
 }
 
+
+// Finish Scanning
 export let scannedText;
 
 async function finishScanning() {
@@ -136,7 +141,6 @@ async function finishScanning() {
         scannedItemAllergens.className = 'scanned-item-allergens-safe';
     }
     codeReader.reset();
-    matches = [];
 }
 
 function updateScanningFor() {
@@ -162,6 +166,7 @@ scanAgainBtn.addEventListener('click', function () {
     btnSpacer.style.display = 'none';
     barcodeReader.style.display = 'flex';
     scanAgainBtn.style.display = 'none';
+    matches = [];
     scannerInit();
 });
 
@@ -227,6 +232,7 @@ resumeScanBtn.addEventListener('click', function () {
 stopScanBtn.addEventListener('click', function () {
     codeReader.stopAsyncDecode();
     codeReader.reset();
+    matches = [];
     scannerDiv.style.display = 'none';
     scanningForDiv.style.display = 'none';
     finalList.innerHTML = '';

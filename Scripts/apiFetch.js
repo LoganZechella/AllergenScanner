@@ -27,24 +27,4 @@ export async function getAPI() {
     return apiOutput; 
 }
 
-// DB Exchange
-
-class User {
-    constructor(name, email, password, allergens) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.allergens = allergens;
-    }
-}
-
-
-// function checkAllergies(apiOutput) {
-//     let stringConvert = apiOutput.toString();
-//     let splitContents = stringConvert.split(';');
-//     const lower = splitContents.map(element => {
-//         return element.toLowerCase();
-//     return lower;
-//     })
-// };
 
