@@ -116,7 +116,7 @@ function checkIngredients() {
     }
 }
 
-export let scannedText = '';
+export let scannedText;
 
 function finishScanning() {
     scannedResults.style.animation = 'bounceIn 1s';
@@ -154,10 +154,12 @@ scanAgainBtn.addEventListener('click', function () {
     scannedResults.style.display = 'none';
     barcodeReader.style.display = 'flex';
     scanAgainBtn.style.display = 'none';
-    scannerInit();
+    scannerReInit();
 });
 
-const codeReader = new ZXing.BrowserMultiFormatReader();
+
+
+let codeReader = new ZXing.BrowserMultiFormatReader();
 function scannerInit() {
     let selectedDeviceId;
     console.log('ZXing code reader initialized');
@@ -166,8 +168,9 @@ function scannerInit() {
             // console.log(result);
             scannedText = result.text;
             getAPI();
+            codeReader.stopAsyncDecode();
         }
-        if (apiOutput) {
+        if (apiOutput !== undefined) {
             codeReader.reset();
             finishScanning();
         }
@@ -181,6 +184,33 @@ function scannerInit() {
         });
     console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
     
+}
+
+function scannerReInit() {
+    let newCodeReader = new ZXing.BrowserMultiFormatReader();
+    let selectedDeviceId;
+    console.log('New ZXing code reader initialized');
+    newCodeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
+        if (result) {
+            // console.log(result);
+            scannedText = result.text;
+            getAPI();
+            newCodeReader.stopAsyncDecode();
+        }
+        if (apiOutput) {
+            newCodeReader.reset();
+            finishScanning();
+        }
+        if (err && !(err instanceof ZXing.NotFoundException)) {
+            console.error(err);
+            document.getElementById('barcode-reader-results').textContent = err;
+        }
+    })
+        .catch((err) => {
+            console.error(err);
+        });
+    console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
+
 }
 
 stopScanBtn.addEventListener('click', function () {
