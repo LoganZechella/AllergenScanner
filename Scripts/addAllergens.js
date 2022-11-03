@@ -118,7 +118,9 @@ function checkIngredients() {
 
 export let scannedText;
 
-function finishScanning() {
+async function finishScanning() {
+    let apiResults = await getAPI();
+    console.log(apiResults);
     scannedResults.style.animation = 'bounceIn 1s';
     scannedResults.style.display = 'flex';
     barcodeReader.style.display = 'none';
@@ -133,6 +135,8 @@ function finishScanning() {
     } else {
         scannedItemAllergens.className = 'scanned-item-allergens-safe';
     }
+    codeReader.reset();
+    matches = [];
 }
 
 beginScanBtn.addEventListener('click', function () {
@@ -148,16 +152,12 @@ beginScanBtn.addEventListener('click', function () {
     stopScanBtn.style.display = 'flex';
 });
 
-// !!! NOT WORKING CURRENTLY - CANNOT CLEAR PREVIOUS SCAN RESULTS TO FETCH NEW API DATA FROM NEW SCAN !!!
-
 scanAgainBtn.addEventListener('click', function () {
     scannedResults.style.display = 'none';
     barcodeReader.style.display = 'flex';
     scanAgainBtn.style.display = 'none';
-    scannerReInit();
+    scannerInit();
 });
-
-
 
 let codeReader = new ZXing.BrowserMultiFormatReader();
 function scannerInit() {
@@ -167,23 +167,19 @@ function scannerInit() {
         if (result) {
             // console.log(result);
             scannedText = result.text;
-            getAPI();
-            codeReader.stopAsyncDecode();
-        }
-        if (apiOutput !== undefined) {
-            codeReader.reset();
+            console.log(scannedText);
             finishScanning();
+            codeReader.stopAsyncDecode();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
             document.getElementById('barcode-reader-results').textContent = err;
         }
     })
-        .catch((err) => {
-            console.error(err);
-        });
+    .catch((err) => {
+        console.error(err);
+    });
     console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
-    
 }
 
 function scannerReInit() {
@@ -194,12 +190,7 @@ function scannerReInit() {
         if (result) {
             // console.log(result);
             scannedText = result.text;
-            getAPI();
             newCodeReader.stopAsyncDecode();
-        }
-        if (apiOutput) {
-            newCodeReader.reset();
-            finishScanning();
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
