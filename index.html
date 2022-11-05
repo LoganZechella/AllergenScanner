@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Allergen Scanner and Checker</title>
     <link href="./Styles/index-style.css" rel="stylesheet" type="text/css">
+    <link href="./Styles/dropdown-menu.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.cdnfonts.com/css/arial-rounded-mt" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/helvetica-rounded-lt-std" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/49cf9e586b122fd8b8cf67c4df697fb9?family=SF+Pro+Rounded" rel="stylesheet" type="text/css">
@@ -36,8 +37,8 @@
                     </div>
                 </div>
                 <ul class="menu" id="menu">
-                    <li class="menu-item"><a href="#">About</a></li>
-                    <li class="menu-item"><a href="#">Documentation</a></li>
+                    <li class="menu-item"><a>About</a></li>
+                    <li class="menu-item" id="menu-signup"><a>Sign Up</a></li>
                     <li class="menu-item" id="menu-login"><a>Login</a></li>
                     <li class="menu-item menu-start" id="menu-start"><a>Scan</a></li>
                 </ul>
@@ -70,7 +71,7 @@
             </button>
             <h2 class="login-window-text">Login to access your previously selected settings!</h2>
 
-            <form action="#">
+            <form action="#" id="login-form">
                 <label for="username" id="login-email">Email:</label><br>
                 <input type="text" id="login-email-text" name="email"><br>
                 <label for="password" id="login-password">Password:</label><br>
@@ -87,14 +88,18 @@
                 <img class="close-glyph" id="close-glyph"
                     src="https://img.icons8.com/ios-glyphs/30/ffffff/macos-close.png" />
             </button>
-            <h2 class="signup-window-text">Create an account to save your info and get scanning quicker when you shop!
+            <h2 class="signup-window-text">Create an account to save your info and get scanning quicker whenever you need!
             </h2>
 
-            <form action="#">
-                <label for="username" id="signup-username">Username:</label><br>
-                <input type="text" id="signup-username-text" name="username"><br>
+            <form action="#" id="signup-form">
+                <label for="name" id="signup-name">Name:</label><br>
+                <input type="text" id="signup-name-text" name="name"><br>
+                <label for="email" id="signup-email">Email:</label><br>
+                <input type="text" id="signup-email-text" name="email"><br>
                 <label for="password" id="signup-password">Password:</label><br>
                 <input type="password" id="signup-password-text" name="password"><br>
+                <label for="password-confirm" id="signup-password-confirm">Confirm password:</label><br>
+                <input type="password" id="signup-password-confirm-text" name="password-confirm"><br>
                 <input type="button" id="signup-new-btn" value="Signup"><br>
             </form>
         </div>
@@ -166,6 +171,7 @@
     <script src="./Scripts/index.js"></script>
     <script src="./Scripts/apiFetch.js" type="module"></script>
     <script src="./Scripts/addAllergens.js" type="module"></script>
+    <script src="./Scripts/newUser.js" type="module"></script>
     <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest/umd/index.min.js"></script>
 
 
@@ -176,14 +182,14 @@
 <footer class="landing-footer" id="landing-footer">
     <div class="social">
         <a href="https://www.twitter.com/yourprysm" target="_blank"><i class="icon ion-social-twitter"></i></a>
-        <a href="https://www.linkedin.com/in/kayla-meisner/" target="_blank"><i
+        <a href="https://www.linkedin.com/in/logan-zechella/" target="_blank"><i
                 class="icon ion-social-linkedin"></i></a>
         <a href="https://www.github.com/loganzechella" target="_blank"><i class="icon ion-social-github"></i></a>
     </div>
     <ul class="list-inline">
-        <li class="list-inline-item"><a href="./landingPage.html">Home</a></li>
+        <li class="list-inline-item"><a href="./index.html">Home</a></li>
         <li class="list-inline-item"><a href="#">Services</a></li>
-        <li class="list-inline-item"><a href="./landingPage.html">About</a></li>
+        <li class="list-inline-item"><a href="./index.html">About</a></li>
     </ul>
     <p class="copyright">Created by J. Logan Zechella, 2022</p>
 </footer>
