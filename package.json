@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A simple app to scan food products for allergens",
   "scripts": {
-    "start": "node index.js",
+    "start": "node ./server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Logan Zechella",
