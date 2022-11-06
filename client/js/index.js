@@ -1,4 +1,3 @@
-import insertDB from './newUser.js.js.js';
 
 const menuItemLoginBtn = document.getElementById("menu-login");
 var burger = document.querySelector('.burger-container');

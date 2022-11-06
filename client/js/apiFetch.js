@@ -1,6 +1,5 @@
 
 import { scannedText } from './addAllergens.js';
-import { signupUserInfo } from './newUser.js.js.js';
 
 // API Data
 export let apiOutput;
