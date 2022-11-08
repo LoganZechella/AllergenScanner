@@ -60,6 +60,8 @@ function menuSignupToggle() {
     if (!menuContainer.classList.contains('menu-opened')) {
         signupWindow.style.display = "flex";
         hero.style.display = "none";
+        addAllergenWindow.style.display = "none";
+        loginWindow.style.display = "none";
         loginBtn.style.display = "none";
         loginWindow.style.display = "none";
         hamburgerAnimate();
