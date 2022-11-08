@@ -119,6 +119,9 @@ allergenOl.addEventListener('click', function (e) {
 
 // Check for allergen matches in ingredients
 
+// Search for all tree nuts if user adds 'nuts' or 'tree nuts' to list
+const nutReplacements = ["Almond", "Beechnut", "Brazil nut", "Bush nut", "Butternut", "Cashew", "Chestnut", "Coconut", "Filbert", "Ginko nut", "Hazelnut", "Hickory nut", "Lichee nut", "Macadamia nut", "Nangai nut", "Pecan", "Peanut", "Pine nut", "Pistachio", "Shea nut", "Walnut"]
+
 let matches = [];
 var punctuation = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~';
 
@@ -126,11 +129,11 @@ function checkIngredients() {
     let ingredientList = apiOutput.ingredients.toLowerCase().split(',');
     let cleanedIngredients = ingredientList.map((string) => {
         return string
-        .split('')
-        .filter(function(letter) {
-            return punctuation.indexOf(letter) === -1;
-        })
-        .join('');
+            .split('')
+            .filter(function (letter) {
+                return punctuation.indexOf(letter) === -1;
+            })
+            .join('');
     });
     let cleanedArray = cleanedIngredients.map((string) => {
         return string.split(' ');
@@ -141,17 +144,18 @@ function checkIngredients() {
 
     for (let i = 0; i < cleanedArray.length; i++) {
         for (let j = 0; j < allergenList.length; j++) {
-            if (cleanedArray[i].includes(allergenList[j])) {
-                matches.push(allergenList[j].toUpperCase())
-            } else {
-                let filtered = filterItems(cleanedIngredients, allergenList[j])
-                if (filtered.length > 0) {
-                    matches.push(allergenList[j].toUpperCase());
-                }
+            if (allergenList[j] === 'nuts' || allergenList[j] === 'tree nuts') {
+                nutReplacements.forEach((nut) => {
+                    allergenList.push(nut);
+                })
+            }
+            let filtered = filterItems(cleanedIngredients, allergenList[j])
+            if (filtered.length > 0) {
+                matches.push(allergenList[j].toUpperCase());
             }
         }
     }
-    
+
     if (matches.length === 0) {
         matches.push('None');
     }
@@ -248,9 +252,9 @@ function scannerInit() {
             document.getElementById('barcode-reader-results').textContent = err;
         }
     })
-    .catch((err) => {
-        console.error(err);
-    });
+        .catch((err) => {
+            console.error(err);
+        });
     console.log(`Started continous decode from camera with id ${selectedDeviceId}`);
 }
 
