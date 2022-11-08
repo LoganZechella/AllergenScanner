@@ -135,17 +135,25 @@ function checkIngredients() {
     let cleanedArray = cleanedIngredients.map((string) => {
         return string.split(' ');
     })
+    function filterItems(arr, query) {
+        return arr.filter((el) => el.toLowerCase().includes(query.toLowerCase()));
+    }
 
     for (let i = 0; i < cleanedArray.length; i++) {
         for (let j = 0; j < allergenList.length; j++) {
             if (cleanedArray[i].includes(allergenList[j])) {
-                matches.push(allergenList[j].toUpperCase());
-            } 
+                matches.push(allergenList[j].toUpperCase())
+            } else {
+                let filtered = filterItems(cleanedIngredients, allergenList[j])
+                if (filtered.length > 0) {
+                    matches.push(allergenList[j].toUpperCase());
+                }
+            }
         }
     }
+    
     if (matches.length === 0) {
         matches.push('None');
-        console.log(matches);
     }
 }
 
@@ -161,7 +169,7 @@ async function finishScanning() {
     scanAgainBtn.style.display = 'flex';
     btnSpacer.style.display = 'flex';
     scannedItemName.innerHTML = `${apiOutput.name}`;
-    scannedItemIngredients.innerHTML = `Ingredients: ${apiOutput.ingredients}`;
+    scannedItemIngredients.innerHTML = `Ingredients:<br/> ${apiOutput.ingredients.replaceAll(';', ', ')}`;
     checkIngredients();
     scannedItemAllergens.innerHTML = `Allergens: ${matches}`;
     if (matches.length >= 1 && matches[0] !== 'None') {
@@ -231,9 +239,7 @@ function scannerInit() {
     console.log('ZXing code reader initialized');
     codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
-            // console.log(result);
             scannedText = result.text;
-            console.log(scannedText);
             finishScanning();
             codeReader.stopAsyncDecode();
         }
@@ -254,7 +260,6 @@ function scannerReInit() {
     console.log('New ZXing code reader initialized');
     newCodeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
-            // console.log(result);
             scannedText = result.text;
             newCodeReader.stopAsyncDecode();
             finishScanning();

@@ -298,7 +298,8 @@
     }
 
     #scanned-item-ingredients {
-        font-size: 0.8em;
+        font-size: 0.6em;
+        line-height: 1.5em;
     }
 
     .scanned-item-allergens-unsafe {
