@@ -1,33 +1,36 @@
-// JSONBIN.io API 
-export function signupUser() {
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
-        if (req.readyState == XMLHttpRequest.DONE) {
-            console.log(req.responseText);
-        }
-    };
-    let userName = document.getElementById('signup-name-text').value;
-    let userEmail = document.getElementById('signup-email-text').value;
-    let userPassword = document.getElementById('signup-password-text').value;
-    let userPasswordConfirm = document.getElementById('signup-password-confirm-text').value;
-    // let userAllergens = allergenList;
-    class User {
-        constructor(name, email, password) {
-            this.name = name;
-            this.email = email;
-            this.password = password;
-        }
+import { addToDB } from './apiFetch.js';
+let userName = document.getElementById('signup-name-text');
+let userEmail = document.getElementById('signup-email-text');
+let userPassword = document.getElementById('signup-password-text');
+let userPasswordConfirm = document.getElementById('signup-password-confirm-text');
+const signupForm = document.getElementById("signup-form");
+const signupText = document.getElementById("signup-window-text");
+
+// Signup Form
+signupBtnSubmit.addEventListener("click", function () {
+    if (userPassword.value === userPasswordConfirm.value && userName.value !== "" && userEmail.value !== "" && userPassword.value !== "" && userPasswordConfirm.value !== "") {
+        addToDB();
+        signupWindow.querySelector("h2").innerHTML = "Signup Successful!";
+        signupForm.style.display = "none";
+        signupWindow.style.marginTop = "25vh";
+        signupWindow.style.animation = "bounceOut 1500ms 500ms";
+        setTimeout(function () {
+            signupWindow.style.display = "none";
+            addAllergenWindow.style.animation = "bounceIn 500ms";
+            addAllergenWindow.style.display = "flex";
+        }, 2000);
+    } else {
+        userPassword.style.animation = 'shakeX 0.5s';
+        userPassword.style.border = '3px solid red';
+        userPassword.setAttribute('placeholder', 'Passwords do not match');
+        userPasswordConfirm.style.animation = 'shakeX 0.5s';
+        userPasswordConfirm.style.border = '3px solid red';
     }
-    let newUser = new User(userName, userEmail, userPassword);
-    let newUserJson = JSON.stringify(newUser);
+});
 
-    req.open("POST", "https://api.jsonbin.io/v3/b", true);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", "");
-    req.send(newUserJson);
-}
-
-let signupBtn = document.getElementById('signup-new-btn');
-signupBtn.addEventListener('click', signupUser);
-
-
+userPassword.addEventListener('focus', function () {
+    userPassword.style.border = '1px solid #fff';
+    userPassword.setAttribute('placeholder', '');
+    userPasswordConfirm.style.border = '1px solid #fff';
+    userPasswordConfirm.setAttribute('placeholder', '');
+});
