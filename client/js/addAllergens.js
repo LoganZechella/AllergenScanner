@@ -146,7 +146,9 @@ function checkIngredients() {
         for (let j = 0; j < allergenList.length; j++) {
             if (allergenList[j] === 'nuts' || allergenList[j] === 'tree nuts') {
                 nutReplacements.forEach((nut) => {
-                    allergenList.push(nut);
+                    if (!allergenList.includes(nut.toLowerCase())) {
+                        allergenList.push(nut);
+                    }
                 })
             }
             let filtered = filterItems(cleanedIngredients, allergenList[j])
@@ -249,7 +251,7 @@ function scannerInit() {
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
-            document.getElementById('barcode-reader-results').textContent = err;
+            document.getElementById('barcode-reader-results').innerHTML = "It looks like this item isn't in our database just yet. We apologize for the inconvenience. Try scanning another item.";
         }
     })
         .catch((err) => {
@@ -270,7 +272,7 @@ function scannerReInit() {
         }
         if (err && !(err instanceof ZXing.NotFoundException)) {
             console.error(err);
-            document.getElementById('barcode-reader-results').textContent = err;
+            document.getElementById('barcode-reader-results').innerHTML = "It looks like this item isn't in our database just yet. We apologize for the inconvenience. Try scanning another item.";
         }
     })
         .catch((err) => {

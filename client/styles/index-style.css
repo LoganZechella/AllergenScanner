@@ -407,6 +407,8 @@
 
     #allergen-list-items>li:hover {
         color: rgb(255, 0, 0);
+        text-decoration: line-through;
+        transition: 350ms;
         cursor: pointer;
     }
 
@@ -521,13 +523,14 @@
         color: #fff;
         margin: 5em 0 0.5em 0;
         font-size: 20px;
+        text-decoration: underline;
     }
 
     #final-allergen-list {
         list-style: none;
-        width: 100vw;
+        width: 80vw;
         justify-content: center;
-        padding-left: 0.5em;
+        padding-left: 3em;
         position: relative;
         display: inline-block;
         text-align: center;
@@ -559,8 +562,20 @@
         line-height: 1.5em;
     }
 
-    #scanning-for-div {
-        margin: 0 1em 0 1em;
+    .scanned-item-allergens-unsafe {
+        color: rgb(255, 0, 0);
+        text-shadow: #000 0px 2px 10px;
+        border: red 2px solid;
+        border-radius: 10px;
+        padding: 0.2em 0 0.2em 0;
+    }
+
+    .scanned-item-allergens-safe {
+        color: green;
+        text-shadow: #000 0px 2px 10px;
+        border: green 2px solid;
+        border-radius: 10px;
+        padding: 0.2em 0 0.2em 0;
     }
 
 }
