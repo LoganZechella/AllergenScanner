@@ -250,10 +250,14 @@
         animation: vanishOut 0.5s;
     }
 
+    .ring {
+        position: relative;
+    }
+
     #video {
         width: 85vw;
         height: 35vh;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     #scanning-for-txt {

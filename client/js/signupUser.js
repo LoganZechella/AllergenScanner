@@ -5,6 +5,7 @@ let userPassword = document.getElementById('signup-password-text');
 let userPasswordConfirm = document.getElementById('signup-password-confirm-text');
 const signupForm = document.getElementById("signup-form");
 const signupText = document.getElementById("signup-window-text");
+const loginBtn = document.getElementById("login-btn");
 
 // Signup Form
 signupBtnSubmit.addEventListener("click", function () {

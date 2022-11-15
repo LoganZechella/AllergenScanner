@@ -26,7 +26,7 @@ const stopScanBtn = document.getElementById('stop-scan-btn');
 const scanAgainBtn = document.getElementById('scan-again-btn');
 const btnSpacer = document.querySelector('.spacer');
 
-
+//Login Window Functions
 function toggleLogin() {
     hero.style.display = 'none';
     loginBtn.style.display = 'none';
@@ -39,7 +39,6 @@ loginBtn.addEventListener('click', toggleLogin);
 function getText() {
     if (allergenInput.value !== '') {
         let allergenText = allergenInput.value;
-        console.log(allergenText);
         return allergenText;
     } else {
         allergenInput.style.animation = 'rubberBand 0.5s';
@@ -50,7 +49,7 @@ function clearInput() {
     allergenInput.value = '';
 }
 
-
+// Add Allergen Window Functions
 function createList() {
     if (allergenList.length === 0) {
         let li = document.createElement('li');
@@ -117,8 +116,7 @@ allergenOl.addEventListener('click', function (e) {
 });
 
 
-// Check for allergen matches in ingredients
-
+// Check for allergen matches in ingredients &
 // Search for all tree nuts if user adds 'nuts' or 'tree nuts' to list
 const nutReplacements = ["Almond", "Beechnut", "Brazil nut", "Bush nut", "Butternut", "Cashew", "Chestnut", "Coconut", "Filbert", "Ginko nut", "Hazelnut", "Hickory nut", "Lichee nut", "Macadamia nut", "Nangai nut", "Pecan", "Peanut", "Pine nut", "Pistachio", "Shea nut", "Walnut"]
 
@@ -192,7 +190,7 @@ function updateScanningFor() {
     };
 }
 
-// Scanner Button Event Listeners
+// Scanner Buttons Event Listeners
 beginScanBtn.addEventListener('click', function () {
     updateScanningFor();
     scannerInit();

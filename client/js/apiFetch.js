@@ -49,8 +49,9 @@ export async function addToDB() {
     let req = new XMLHttpRequest();
     req.onreadystatechange = () => {
         if (req.readyState == XMLHttpRequest.DONE) {
-            console.log(req.responseText);
-
+            signupWindow.querySelector("h2").innerHTML = "Signup Successful!";
+            signupWindow.style.display = "none";
+            addAllergenWindow.style.animation = "bounceIn 500ms";
         } else {
             console.log("Error");
         }
@@ -58,7 +59,7 @@ export async function addToDB() {
 
     req.open("POST", "https://api.jsonbin.io/v3/b", true);
     req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", "");
+    req.setRequestHeader("X-Master-Key", "$2b$10$44JBv/vXU9kIvyGO7.Kb0uVx..QujAbCz0h9uViZJh8dgZIfBT5qe");
     req.send(newUserJson);
 }
 
