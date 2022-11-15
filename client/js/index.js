@@ -13,6 +13,10 @@ const menuItemScanBtn = document.getElementById("menu-start");
 const signupWindow = document.getElementById("signup-window");
 const menuItemSignupBtn = document.getElementById("menu-signup");
 const signupBtnSubmit = document.getElementById("signup-new-btn");
+const allergenOl = document.getElementById("allergen-list-items");
+const allergenList = [];
+const allergenListDiv = document.getElementById("allergen-list");
+const beginScanBtn = document.getElementById("begin-scan-btn");
 
 // Burger Toggle 
 function burgerToggle() {
@@ -29,9 +33,9 @@ burger.addEventListener('click', function () {
 function menuLoginToggle() {
     menuContainer.classList.toggle('menu-opened');
     if (!menuContainer.classList.contains('menu-opened')) {
-	    loginWindow.style.display = "flex";
-	    hero.style.display = "none";
-	    loginBtn.style.display = "none";
+        loginWindow.style.display = "flex";
+        hero.style.display = "none";
+        loginBtn.style.display = "none";
         addAllergenWindow.style.display = "none";
         signupWindow.style.display = "none";
     } else {
@@ -77,10 +81,25 @@ menuItemSignupBtn.addEventListener("click", menuSignupToggle);
 
 // Open Add Allergen Window
 function startNow() {
+    if (sessionStorage.getItem("allergenList") !== null) {
+        allergenListDiv.style.display = "block";
+        let storedList = sessionStorage.getItem("allergenList");
+        let storedParse = JSON.parse(storedList);
+        for (const allergen of storedParse) {
+            let li = document.createElement("li");
+            li.innerHTML = allergen;
+            allergenOl.appendChild(li);
+        }
+    }
     addAllergenWindow.style.display = "flex";
     hero.style.display = "none";
     loginBtn.style.display = "none";
     landingHeader.style.padding = "0.5em 0 0.5em 0";
+    allergenOl.style.display = "block";
+    if (allergenOl.children.length > 0) {
+        beginScanBtn.removeAttribute("disabled");
+        beginScanBtn.style.cursor = "pointer";
+    }
 };
 
 // Open Login Window

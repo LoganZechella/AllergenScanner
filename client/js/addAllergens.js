@@ -1,5 +1,6 @@
 import { getAPI } from './apiFetch.js';
 import { apiOutput } from './apiFetch.js';
+import { autoComplete } from './autoComplete.js';
 
 // Variables
 const addBtn = document.getElementById('add-btn');
@@ -25,6 +26,12 @@ const hero = document.getElementById('hero');
 const stopScanBtn = document.getElementById('stop-scan-btn');
 const scanAgainBtn = document.getElementById('scan-again-btn');
 const btnSpacer = document.querySelector('.spacer');
+const autoompleteList = document.getElementById('autocomplete-list');
+const ac1 = document.getElementById('ac-1');
+const ac2 = document.getElementById('ac-2');
+const ac3 = document.getElementById('ac-3');
+const ac4 = document.getElementById('ac-4');
+const ac5 = document.getElementById('ac-5');
 
 //Login Window Functions
 function toggleLogin() {
@@ -47,6 +54,9 @@ function getText() {
 
 function clearInput() {
     allergenInput.value = '';
+    for (const li of autoompleteList.children) {
+        li.innerHTML = '';
+    }
 }
 
 // Add Allergen Window Functions
@@ -65,7 +75,7 @@ function createList() {
 }
 
 function enableBeginScan() {
-    if (allergenList.length > 0 && beginScanBtn.disabled === true) {
+    if (allergenList.length > 0 || beginScanBtn.disabled === true) {
         beginScanBtn.style.cursor = 'pointer';
         beginScanBtn.removeAttribute('disabled');
     }
@@ -78,6 +88,7 @@ addBtn.addEventListener('click', function () {
         createList();
         listDiv.style.display = 'flex';
         clearInput();
+        autoompleteList.style.display = 'none';
         allergenInput.focus();
     } else {
         addBtn.style.animation = 'shakeX 0.5s';
@@ -90,6 +101,36 @@ addBtn.addEventListener('click', function () {
         resumeScanBtn.removeAttribute('disabled');
     }
 });
+
+allergenInput.addEventListener('input', function () {
+    autoComplete(allergenInput.value);
+    if (autoompleteList.style.display === 'none') {
+        autoompleteList.style.display = 'block';
+    }
+    if (allergenInput.value === '') {
+        for (const li of autoompleteList.children) {
+            li.innerHTML = '';
+        }
+        autoompleteList.style.display = 'none';
+    }
+    if (beginScanBtn.style.display !== 'none' && beginScanBtn.disabled === true) {
+        enableBeginScan();
+    } else {
+        resumeScanBtn.style.cursor = 'pointer';
+        resumeScanBtn.removeAttribute('disabled');
+    }
+});
+
+autoompleteList.addEventListener('click', function (e) {
+    let clickedItem = e.target.innerHTML;
+    allergenList.push(clickedItem.toLowerCase());
+    createList();
+    autoompleteList.style.display = 'none';
+    listDiv.style.display = 'flex';
+    clearInput();
+    allergenInput.focus();
+});
+
 
 function deleteItem() {
     let item = this;
@@ -200,6 +241,7 @@ beginScanBtn.addEventListener('click', function () {
     btnSpacer.style.display = 'none';
     scanningForDiv.style.display = 'flex';
     stopScanBtn.style.display = 'flex';
+    sessionStorage.setItem('allergenList', JSON.stringify(allergenList));
 });
 
 scanAgainBtn.addEventListener('click', function () {
