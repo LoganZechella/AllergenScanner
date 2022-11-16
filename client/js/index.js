@@ -8,6 +8,7 @@ const addAllergenWindow = document.getElementById("add-allergen-window");
 const loginWindow = document.getElementById("login-window");
 const hero = document.getElementById("hero");
 const loginBtn = document.getElementById("header-login-btn");
+const loginUserbtn = document.getElementById("login-btn");
 const stopScanBtn = document.getElementById("stop-scan-btn");
 const menuItemScanBtn = document.getElementById("menu-start");
 const signupWindow = document.getElementById("signup-window");

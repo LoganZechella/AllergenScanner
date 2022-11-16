@@ -24,42 +24,4 @@ export async function getAPI() {
         console.warn('Something went wrong.', err);
     })
     return apiOutput; 
-}
-
-// Add to DB
-
-// let userAllergens = allergenList;
-
-class User {
-    constructor(name, email, password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-    }
-}
-
-export async function addToDB() {
-    let userName = document.getElementById('signup-name-text').value;
-    let userEmail = document.getElementById('signup-email-text').value;
-    let userPassword = document.getElementById('signup-password-text').value;
-    let newUser = new User(userName, userEmail, userPassword);
-    let newUserJson = JSON.stringify(newUser);
-
-    // JSONBIN.io API 
-    let req = new XMLHttpRequest();
-    req.onreadystatechange = () => {
-        if (req.readyState == XMLHttpRequest.DONE) {
-            signupWindow.querySelector("h2").innerHTML = "Signup Successful!";
-            signupWindow.style.display = "none";
-            addAllergenWindow.style.animation = "bounceIn 500ms";
-        } else {
-            console.log("Error");
-        }
-    };
-
-    req.open("POST", "https://api.jsonbin.io/v3/b", true);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", "$2b$10$44JBv/vXU9kIvyGO7.Kb0uVx..QujAbCz0h9uViZJh8dgZIfBT5qe");
-    req.send(newUserJson);
-}
-
+};

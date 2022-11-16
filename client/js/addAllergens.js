@@ -1,6 +1,7 @@
 import { getAPI } from './apiFetch.js';
 import { apiOutput } from './apiFetch.js';
 import { autoComplete } from './autoComplete.js';
+import { loginUser } from './loginUser.js';
 
 // Variables
 const addBtn = document.getElementById('add-btn');
@@ -21,17 +22,15 @@ let scannedItemName = document.getElementById('scanned-item-name');
 let scannedItemAllergens = document.getElementById('scanned-item-allergens');
 let scannedItemIngredients = document.getElementById('scanned-item-ingredients');
 const loginBtn = document.getElementById('header-login-btn');
+const userLoginBtn = document.getElementById('login-btn');
 const loginWindow = document.getElementById('login-window');
 const hero = document.getElementById('hero');
 const stopScanBtn = document.getElementById('stop-scan-btn');
 const scanAgainBtn = document.getElementById('scan-again-btn');
 const btnSpacer = document.querySelector('.spacer');
 const autoompleteList = document.getElementById('autocomplete-list');
-const ac1 = document.getElementById('ac-1');
-const ac2 = document.getElementById('ac-2');
-const ac3 = document.getElementById('ac-3');
-const ac4 = document.getElementById('ac-4');
-const ac5 = document.getElementById('ac-5');
+const loginFormEmail = document.getElementById('login-email-text');
+const loginFormPassword = document.getElementById('login-password-text');
 
 //Login Window Functions
 function toggleLogin() {
@@ -42,6 +41,30 @@ function toggleLogin() {
 }
 
 loginBtn.addEventListener('click', toggleLogin);
+userLoginBtn.addEventListener('click', async function () {
+    let userBasket = await loginUser();
+    if (loginFormEmail.value === userBasket && loginFormPassword.value === userBasket && loginFormPassword.value !== '' && loginFormEmail.value !== '') {
+        loginWindow.querySelector("h2").innerHTML = "Signup Successful!";
+        loginWindow.querySelector("form").style.display = "none";
+        loginWindow.style.marginTop = "25vh";
+        loginWindow.style.animation = "bounceOut 1500ms 500ms";
+        setTimeout(function () {
+            loginWindow.style.display = "none";
+            addAllergenWindow.style.animation = "bounceIn 500ms";
+            addAllergenWindow.style.display = "flex";
+        }, 2000);
+    } else {
+        loginFormEmail.style.animation = "shake 0.5s";
+        loginFormPassword.style.animation = "shake 0.5s";
+        loginFormEmail.style.border = "3px solid red";
+        loginFormPassword.style.border = "3px solid red";
+    }
+    loginFormEmail.addEventListener('input', function () {
+        loginFormEmail.style.border = "none";
+        loginFormPassword.style.border = "none";
+    });
+    
+});
 
 function getText() {
     if (allergenInput.value !== '') {
