@@ -276,9 +276,9 @@
     }
 
     #video {
-        width: 300px;
-        aspect-ratio: auto 300 / 200;
-        height: 200px;
+        width: auto;
+        aspect-ratio: auto 16/9;
+        height: auto;
     }
 
     #scanning-for-txt {
