@@ -305,6 +305,25 @@ stopScanBtn.addEventListener('click', function () {
 let codeReader = new ZXing.BrowserMultiFormatReader();
 function scannerInit() {
     let selectedDeviceId;
+
+    // Debug
+    if (!navigator.mediaDevices?.enumerateDevices) {
+        console.log("enumerateDevices() not supported.");
+    } else {
+        // List cameras and microphones.
+        navigator.mediaDevices.enumerateDevices()
+            .then((devices) => {
+                devices.forEach((device) => {
+                    console.log(`${device.kind}: ${device.label} id = ${device.deviceId}`);
+                });
+            })
+            .catch((err) => {
+                console.error(`${err.name}: ${err.message}`);
+            });
+    }
+
+
+
     console.log('ZXing code reader initialized');
     codeReader.decodeFromVideoDevice(selectedDeviceId, 'video', (result, err) => {
         if (result) {
