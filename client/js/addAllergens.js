@@ -333,7 +333,7 @@ const constraints = {
 
 navigator.mediaDevices.getUserMedia(constraints)
     .then((mediaStream) => {
-        const video = document.querySelector('video');
+        const video = document.getElementById('video');
         video.srcObject = mediaStream;
         video.onloadedmetadata = () => {
             video.play();
