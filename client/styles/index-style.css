@@ -276,9 +276,9 @@
     }
 
     #video {
-        width: 85vw;
-        height: 50vh;
-        object-fit: cover;
+        width: auto;
+        max-height: 50vh;
+        object-fit: scale-down;
     }
 
     #scanning-for-txt {
