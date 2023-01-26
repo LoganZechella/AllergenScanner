@@ -325,6 +325,26 @@ function scannerInit() {
 
 }
 
+// Zoom
+const constraints = {
+    audio: true,
+    video: { zoom: 2 }
+};
+
+navigator.mediaDevices.getUserMedia(constraints)
+    .then((mediaStream) => {
+        const video = document.querySelector('video');
+        video.srcObject = mediaStream;
+        video.onloadedmetadata = () => {
+            video.play();
+        };
+    })
+    .catch((err) => {
+        // always check for errors at the end.
+        console.error(`${err.name}: ${err.message}`);
+    });
+
+
 function scannerReInit() {
     let newCodeReader = new ZXing.BrowserMultiFormatReader();
     let selectedDeviceId;
