@@ -269,6 +269,7 @@
     #barcode-reader {
         transition: vanishOut 0.5s;
         animation: vanishOut 0.5s;
+        display: flex;
     }
 
     .ring {
@@ -276,9 +277,10 @@
     }
 
     #video {
-        width: auto;
+        width: 95vw;
         aspect-ratio: auto 16/9;
         height: auto;
+        object-fit: contain;
     }
 
     #scanning-for-txt {

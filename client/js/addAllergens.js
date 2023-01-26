@@ -301,6 +301,7 @@ stopScanBtn.addEventListener('click', function () {
     stopScanBtn.style.display = 'none';
 });
 
+
 // Barcode Scanner
 let codeReader = new ZXing.BrowserMultiFormatReader();
 function scannerInit() {
