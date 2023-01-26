@@ -276,7 +276,7 @@
     }
 
     #video {
-        width: auto;
+        max-width: 90vw;
         max-height: 50vh;
         object-fit: scale-down;
     }
