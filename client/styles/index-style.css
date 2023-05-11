@@ -8,10 +8,10 @@
 @font-face {
     font-family: 'sf_pro_roundedsemibold';
     src: url('/client/styles/fonts/sf-pro-rounded-semibold-webfont.woff2') format('woff2'),
-        url('/client/styles/fonts/sf-pro-rounded-semibold-webfont.woff') format('woff');
+        url('/client/styles/fonts/sf-pro-rounded-semibold-webfont.woff') format('woff'), 
+        url('/client/styles/fonts/SF-Pro-Rounded-Semibold.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
-
 }
 
 :root {
