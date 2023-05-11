@@ -1,12 +1,21 @@
 @import url(https://db.onlinewebfonts.com/c/49cf9e586b122fd8b8cf67c4df697fb9?family=SF+Pro+Rounded);
 
-@font-face {
-    font-family: "SF Pro Rounded";
+/* @font-face {
+    font-family: "sf_pro_roundedsemibold";
     src: url(https://db.onlinewebfonts.com/t/49cf9e586b122fd8b8cf67c4df697fb9.ttf) format("truetype");
+} */
+
+@font-face {
+    font-family: 'sf_pro_roundedsemibold';
+    src: url('/client/styles/fonts/sf-pro-rounded-semibold-webfont.woff2') format('woff2'),
+        url('/client/styles/fonts/sf-pro-rounded-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
 
 :root {
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     --palette-dark0: #001341;
     --palette-dark1: #00396c;
     --palette-dark2: #12629b;
@@ -197,7 +206,7 @@
         height: 50px;
         border-radius: 0.3em;
         font-size: 22px;
-        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
     }
@@ -251,7 +260,7 @@
         height: auto;
         border-radius: 0.5em;
         font-size: 14px;
-        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
     }
@@ -514,7 +523,7 @@
         height: 50px;
         border-radius: 0.3em;
         font-size: 22px;
-        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
     }
@@ -564,7 +573,7 @@
         height: auto;
         border-radius: 0.5em;
         font-size: 14px;
-        font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+        font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
         text-align: center;
         cursor: pointer;
     }
@@ -659,7 +668,7 @@
 /* Whole Page */
 
 * {
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
 }
 
 body {
@@ -838,7 +847,7 @@ body {
     height: 35px;
     border-radius: 0.3em;
     font-size: 14px;
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -851,7 +860,7 @@ body {
     height: auto;
     border-radius: 0.5em;
     margin: 1em 0 1em 1em;
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: pointer;
 }
@@ -901,7 +910,7 @@ body {
     height: 50px;
     border-radius: 0.5em;
     font-size: 14px;
-    font-family: "SF Pro Rounded", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
+    font-family: "sf_pro_roundedsemibold", "Arial Rounded MT Bold", "Helvetica Rounded LT Std", Arial, sans-serif;
     text-align: center;
     cursor: not-allowed;
     z-index: 1001;
